@@ -1,6 +1,6 @@
 {
   "name": "soulswap-limit-orders-react",
-  "version": "1.8.0",
+  "version": "2.1.0",
   "description": "React Library for creating limit orders via SoulSwap",
   "keywords": [
     "ethereum",
@@ -113,6 +113,7 @@
   },
   "dependencies": {
     "@ethersproject/units": "^5.6.0",
+    "@heroicons/react": "^1.0.6",
     "@popperjs/core": "^2.9.2",
     "@reach/dialog": "^0.15.0",
     "@uniswap/default-token-list": "^2.0.0",

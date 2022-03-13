@@ -176,7 +176,7 @@ export default function SwapModalHeader({
           style={{ cursor: "pointer" }}
           onClick={() => setShowDisclaimer(!showDisclaimer)}
         >
-          {!showDisclaimer ? "Show Disclaimer" : "Hide Disclaimer"}
+          {!showDisclaimer ? "Show" : "Hide"}
         </TYPE.link>
         <Toggle
           name={"disclaimer"}
@@ -184,7 +184,7 @@ export default function SwapModalHeader({
           checked={disclaimer}
           value={""}
           onChange={() => handleDisclaimer(!disclaimer)}
-          labelLeft={"Accept Disclaimer"}
+          labelLeft={"Accept"}
           labelRight={""}
           height={24}
           sliderHeight={16}
