@@ -1,6 +1,6 @@
 {
   "name": "soulswap-stop-limit-orders-react",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "React Library for creating stop limit orders via SoulSwap",
   "keywords": [
     "ethereum",
@@ -99,7 +99,7 @@
     "rollup-plugin-scss": "^2.6.1",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-visualizer": "^5.5.2",
-    "soulswap-limit-orders-lib": "^1.0.0",
+    "soulswap-limit-orders-lib": "^1.1.0",
     "styled-components": "^4.2.0",
     "ts-generator": "0.1.1",
     "ts-node": "9.1.1",
@@ -134,7 +134,7 @@
     "react-virtualized-auto-sizer": "^1.0.5",
     "react-window": "^1.8.6",
     "rebass": "^4.0.7",
-    "soulswap-limit-orders-lib": "^1.0.0",
+    "soulswap-limit-orders-lib": "^1.1.0",
     "tslib": "^2.3.1",
     "wcag-contrast": "^3.0.0"
   }
