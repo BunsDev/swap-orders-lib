@@ -1,106 +1,109 @@
-import { Currency } from "@uniswap/sdk-core";
-import React, { useMemo } from "react";
-import styled from "styled-components/macro";
+import { Currency, WETH9 } from "@uniswap/sdk-core";
 import useHttpLocations from "../../hooks/useHttpLocations";
 import { WrappedTokenInfo } from "../../state/glists/wrappedTokenInfo";
+import React, { FunctionComponent, useMemo } from "react";
+
 import Logo from "../Logo";
-import { getBaseTokenLogoURLByTokenSymbol } from "../../constants/tokens";
-import { useCombinedActiveList } from "../../state/glists/hooks";
-import EthereumLogo from "../../assets/images/ethereum-logo.png";
-import { isEthereumChain } from "soulswap-limit-orders-lib/dist/utils";
+// import Logo, { UNKNOWN_ICON } from '../Logo'
 
-export const getTokenLogoURL = (address: string) =>
-  `https://raw.githubusercontent.com//SoulSwapFinance/assets/master/blockchains/fantom/assets/${address}/logo.png`;
+const BLOCKCHAIN = {
+  [1]: "ethereum",
+  [56]: "binance",
+  [250]: "fantom",
+};
 
-const StyledEthereumLogo = styled.img<{ size: string }>`
-  width: ${({ size }) => size};
-  height: ${({ size }) => size};
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.075);
-  border-radius: 24px;
-`;
+// @ts-ignore TYPE NEEDS FIXING
+export const getCurrencyLogoUrls = (currency): string[] => {
+  const urls: string[] = [];
 
-const StyledLogo = styled(Logo)<{ size: string }>`
-  width: ${({ size }) => size};
-  height: ${({ size }) => size};
-  border-radius: ${({ size }) => size};
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.075);
-  background-color: ${({ theme }) => theme.white};
-`;
-
-export default function CurrencyLogo({
-  currency,
-  chainId,
-  size = "24px",
-  style,
-  ...rest
-}: {
-  chainId?: number;
-  currency?: Currency;
-  size?: string;
-  style?: React.CSSProperties;
-}) {
-  const uriLocations = useHttpLocations(
-    currency instanceof WrappedTokenInfo ? currency.logoURI : undefined
-  );
-
-  const activeTokenList = useCombinedActiveList();
-
-  const srcs: string[] = useMemo(() => {
-    if (!currency || currency.isNative) return [];
-
-    const uriBySymbol = getBaseTokenLogoURLByTokenSymbol(currency.symbol);
-
-    if (currency.isToken) {
-      const urlFromList =
-        chainId && activeTokenList[chainId][currency.address]
-          ? activeTokenList[chainId][currency.address]["token"]["tokenInfo"][
-              "logoURI"
-            ]
-          : undefined;
-      const defaultUrls =
-        chainId && isEthereumChain(chainId)
-          ? [getTokenLogoURL(currency.address)]
-          : [];
-      if (currency instanceof WrappedTokenInfo) {
-        return uriBySymbol
-          ? [...uriLocations, ...defaultUrls, uriBySymbol]
-          : [...uriLocations, ...defaultUrls];
-      }
-      const tokenUrlsSoFar = uriBySymbol
-        ? [uriBySymbol, ...defaultUrls]
-        : defaultUrls;
-      return urlFromList
-        ? ([urlFromList, ...tokenUrlsSoFar] as string[])
-        : (tokenUrlsSoFar as string[]);
-    }
-    return [];
-  }, [currency, uriLocations, chainId, activeTokenList]);
-
-  if (currency?.isNative) {
-    return chainId !== 1 ? (
-      <StyledLogo
-        srcs={[getBaseTokenLogoURLByTokenSymbol(currency.symbol) ?? ""]}
-        size={size}
-        style={style}
-        {...rest}
-      />
-    ) : (
-      <StyledEthereumLogo
-        src={EthereumLogo}
-        size={size}
-        style={style}
-        {...rest}
-      />
+  if (currency.chainId in BLOCKCHAIN) {
+    urls.push(
+      // @ts-ignore TYPE NEEDS FIXING
+      `https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/${
+        [BLOCKCHAIN][currency.chainId]
+      }/assets/${
+        // `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${
+        currency.address
+      }/logo.png`
+    );
+    urls.push(
+      // @ts-ignore TYPE NEEDS FIXING
+      `https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/${
+        [BLOCKCHAIN][currency.chainId]
+      }/assets/${currency.address}/logo.png`
+    );
+    urls.push(
+      // @ts-ignore TYPE NEEDS FIXING
+      `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/${
+        [BLOCKCHAIN][currency.chainId]
+      }/assets/${currency.address}/logo.png`
     );
   }
+  return urls;
+};
+
+// const AvalancheLogo = 'https://raw.githubusercontent.com/sushiswap/logos/main/token/avax.jpg'
+const EthereumLogo =
+  "https://raw.githubusercontent.com/SoulSwapFinance/icons/master/token/eth.jpg";
+const FantomLogo =
+  "https://raw.githubusercontent.com/SoulSwapFinance/icons/master/token/ftm.jpg";
+const BinanceLogo =
+  "https://raw.githubusercontent.com/SoulSwapFinance/icons/master/token/ftm.jpg";
+
+const LOGO: Record<number, string> = {
+  [1]: EthereumLogo,
+  [56]: BinanceLogo,
+  [259]: FantomLogo,
+};
+
+export const UNKNOWN_ICON =
+  "https://raw.githubusercontent.com/SoulSwapFinance/icons/master/token/unknown.png";
+
+export interface CurrencyLogoProps {
+  currency: Currency;
+  size?: string | number;
+  style?: React.CSSProperties;
+  className?: string;
+}
+
+const CurrencyLogo: FunctionComponent<CurrencyLogoProps> = ({
+  currency,
+  size = "24px",
+  className,
+  style,
+}) => {
+  const uriLocations = useHttpLocations(
+    currency instanceof WrappedTokenInfo
+      ? currency.logoURI || currency.tokenInfo.logoURI
+      : undefined
+  );
+
+  const srcs: string[] = useMemo(() => {
+    if (currency?.isNative || currency?.equals(WETH9[currency.chainId])) {
+      return [LOGO[currency.chainId], UNKNOWN_ICON];
+    }
+
+    if (currency?.isNative === false) {
+      const defaultUrls = [...getCurrencyLogoUrls(currency)];
+      if (currency instanceof WrappedTokenInfo) {
+        return [...uriLocations, ...defaultUrls, UNKNOWN_ICON];
+      }
+      return defaultUrls;
+    }
+
+    return [UNKNOWN_ICON];
+  }, [currency, uriLocations]);
 
   return (
-    <StyledLogo
-      size={size}
+    <Logo
       srcs={srcs}
-      alt={`${currency?.symbol ?? "token"} logo`}
+      // width={size}
+      // height={size}
+      alt={currency?.symbol}
+      className={className}
       style={style}
-      {...rest}
     />
   );
-}
+};
+
+export default CurrencyLogo;
