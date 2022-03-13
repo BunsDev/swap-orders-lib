@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import type { FC, ReactNode } from "react";
 import { Web3Provider as Web3ProviderEthers } from "@ethersproject/providers";
-import { Handler } from "@gelatonetwork/limit-orders-lib";
+import { Handler } from "soulswap-limit-orders-lib";
 
 interface Web3State {
   library: Web3ProviderEthers | undefined;

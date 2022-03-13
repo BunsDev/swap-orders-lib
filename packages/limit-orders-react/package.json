@@ -1,6 +1,6 @@
 {
   "name": "soulswap-limit-orders-react",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "React Library for creating limit orders via SoulSwap",
   "keywords": [
     "ethereum",
@@ -12,16 +12,16 @@
     "soulswap",
     "gelato"
   ],
-  "homepage": "https://github.com/gelatodigital/swap-orders-lib/tree/master/packages/limit-orders-react#readme",
+  "homepage": "https://github.com/soulswap/swap-orders-lib/tree/master/packages/limit-orders-react#readme",
   "bugs": {
-    "url": "https://github.com/gelatodigital/swap-orders-lib/issues"
+    "url": "https://github.com/soulswap/swap-orders-lib/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gelatodigital/swap-orders-lib.git"
+    "url": "git+https://github.com/soulswap/swap-orders-lib.git"
   },
   "license": "GPL-3.0-only",
-  "author": "Gelato Network",
+  "author": "SoulSwap Finance",
   "browser": {
     "./dist/index.esm.js": "./dist/index.esm.js",
     "./dist/index.cjs.js": "./dist/index.cjs.js"
@@ -112,13 +112,13 @@
     "styled-components": "^4.2.0 || ^5.0.0"
   },
   "dependencies": {
-    "@gelatonetwork/limit-orders-lib": "^4.1.0",
+    "@ethersproject/units": "^5.6.0",
     "@popperjs/core": "^2.9.2",
     "@reach/dialog": "^0.15.0",
     "@uniswap/default-token-list": "^2.0.0",
     "@uniswap/sdk-core": "^3.0.0-alpha.3",
     "@uniswap/token-lists": "^1.0.0-beta.24",
-    "@uniswap/v2-sdk": "^3.0.0-alpha.2",
+    "@uniswap/v2-sdk": "^3.0.1",
     "ethers": "^5.4.6",
     "local-storage": "^2.0.0",
     "lodash.flatmap": "^4.5.0",
@@ -134,6 +134,7 @@
     "react-virtualized-auto-sizer": "^1.0.5",
     "react-window": "^1.8.6",
     "rebass": "^4.0.7",
+    "soulswap-limit-orders-lib": "^1.1.0",
     "tslib": "^2.3.1",
     "wcag-contrast": "^3.0.0"
   }
