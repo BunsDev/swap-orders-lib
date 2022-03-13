@@ -78,7 +78,7 @@ export default function SwapModalHeader({
 
   useEffect(() => {
     onDisclaimerChange(disclaimer);
-  }, []);
+  }, [disclaimer, onDisclaimerChange]);
 
   if (!inputAmount || !outputAmount) return null;
 

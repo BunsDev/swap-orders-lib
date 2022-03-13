@@ -1,8 +1,8 @@
 {
-  "name": "swap-orders-lib",
-  "description": "Gelato Network orders library",
+  "name": "soulswap-orders-lib",
+  "description": "SoulSwap Orders Library",
   "main": "index.js",
-  "author": "Gelato Network",
+  "author": "SoulSwap Finance",
   "license": "GPL-3.0-only",
   "private": true,
   "devDependencies": {

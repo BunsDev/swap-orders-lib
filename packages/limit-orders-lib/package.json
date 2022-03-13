@@ -1,5 +1,5 @@
 {
-  "name": "@gelatonetwork/limit-orders-lib",
+  "name": "soulswap-limit-orders-lib",
   "version": "4.1.0",
   "description": "Library for creating limit orders via Gelato",
   "main": "dist/index.js",

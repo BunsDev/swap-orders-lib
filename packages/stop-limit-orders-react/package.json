@@ -1,5 +1,5 @@
 {
-  "name": "@gelatonetwork/stop-limit-orders-react",
+  "name": "soulswap-stop-limit-orders-react",
   "version": "1.3.0",
   "description": "React Library for creating stop limit orders via Gelato",
   "keywords": [

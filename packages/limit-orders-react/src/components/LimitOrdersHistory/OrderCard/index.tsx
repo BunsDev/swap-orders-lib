@@ -218,13 +218,7 @@ export default function OrderCard({ order }: { order: Order }) {
         : gelatoLibrary && chainId && order.minReturn
         ? gelatoLibrary.getAdjustedMinReturn(order.minReturn)
         : undefined,
-    [
-      chainId,
-      gelatoLibrary,
-      order.adjustedMinReturn,
-      order.minReturn,
-      isTransactionCostDependentChainBool,
-    ]
+    [chainId, gelatoLibrary, order.adjustedMinReturn, order.minReturn]
   );
 
   const outputAmount = useMemo(
