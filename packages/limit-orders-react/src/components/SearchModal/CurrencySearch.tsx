@@ -180,7 +180,7 @@ export function CurrencySearch({
       <PaddedColumn gap="16px">
         <RowBetween>
           <Text fontWeight={500} fontSize={16}>
-            Select a token
+            Select Token
           </Text>
           <CloseIcon onClick={onDismiss} />
         </RowBetween>

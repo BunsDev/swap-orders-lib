@@ -296,7 +296,7 @@ export function useDerivedOrderInfo(): DerivedOrderInfo {
   }
 
   if (!currencies.input || !currencies.output) {
-    inputError = inputError ?? "Select a token";
+    inputError = inputError ?? "Select Token";
   }
 
   if (

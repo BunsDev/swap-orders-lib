@@ -51,7 +51,6 @@ import { ExternalLink, TYPE } from "../../theme";
 import { useWeb3 } from "../../web3";
 import useTheme from "../../hooks/useTheme";
 import useGasOverhead from "../../hooks/useGasOverhead";
-import PoweredByGelato from "../../assets/svg/poweredbygelato_transparent.svg";
 import {
   ApprovalState,
   useApproveCallbackFromInputCurrencyAmount,
@@ -75,19 +74,6 @@ enum Rate {
   DIV = "DIV",
   MUL = "MUL",
 }
-
-const PoweredByWrapper = styled(PoweredByGelato)<{ size: number }>`
-  ${({ theme }) => theme.flexColumnNoWrap};
-  height: ${() => "26px"};
-  width: ${({ size }) => (size ? size + "px" : "32px")};
-  background-color: ${({ theme }) => theme.bg1};
-  & > img,
-  ${({ theme }) => theme.mediaWidth.upToMedium`
-    align-items: flex-end;
-  `};
-  border-radius: 0.5rem;       
-  margin-left: 0.25rem;
-`;
 
 interface GelatoStopLimitOrderProps {
   showCommonBases?: boolean;
@@ -481,11 +467,6 @@ export default function GelatoStopLimitOrder({
             <Row
               style={{ justifyContent: !trade ? "center" : "space-between" }}
             >
-              <RowFixed>
-                <ExternalLink href={"https://www.gelato.network"}>
-                  <PoweredByWrapper size={126} />
-                </ExternalLink>
-              </RowFixed>
               {trade ? (
                 <RowFixed>
                   {/* Current market rate */}

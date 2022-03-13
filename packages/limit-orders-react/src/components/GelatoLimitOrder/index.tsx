@@ -47,11 +47,10 @@ import { Field } from "../../state/gorder/actions";
 import { tryParseAmount } from "../../state/gorder/hooks";
 import { maxAmountSpend } from "../../utils/maxAmountSpend";
 import AppBody from "./AppBody";
-import { ExternalLink, TYPE } from "../../theme";
+import { TYPE } from "../../theme";
 import { useWeb3 } from "../../web3";
 import useTheme from "../../hooks/useTheme";
 import useGasOverhead from "../../hooks/useGasOverhead";
-import PoweredByGelato from "../../assets/svg/poweredbygelato_transparent.svg";
 import {
   ApprovalState,
   useApproveCallbackFromInputCurrencyAmount,
@@ -79,19 +78,6 @@ enum Rate {
   DIV = "DIV",
   MUL = "MUL",
 }
-
-const PoweredByWrapper = styled(PoweredByGelato)<{ size: number }>`
-  ${({ theme }) => theme.flexColumnNoWrap};
-  height: ${() => "26px"};
-  width: ${({ size }) => (size ? size + "px" : "32px")};
-  background-color: ${({ theme }) => theme.bg1};
-  & > img,
-  ${({ theme }) => theme.mediaWidth.upToMedium`
-    align-items: flex-end;
-  `};
-  border-radius: 0.5rem;       
-  margin-left: 0.25rem;
-`;
 
 interface GelatoLimitOrderProps {
   showCommonBases?: boolean;
@@ -516,14 +502,9 @@ export default function GelatoLimitOrder({
             <Row
               style={{ justifyContent: !trade ? "center" : "space-between" }}
             >
-              <RowFixed>
-                <ExternalLink href={"https://www.gelato.network"}>
-                  <PoweredByWrapper size={126} />
-                </ExternalLink>
-              </RowFixed>
               {trade ? (
                 <RowFixed>
-                  {/* Current market rate */}
+                  {/* Current Market Rate */}
                   <TradePrice
                     price={trade.executionPrice}
                     showInverted={showInverted}

@@ -329,7 +329,7 @@ export default function CurrencyInputPanel({
                             currency.symbol.length - 5,
                             currency.symbol.length
                           )
-                        : currency?.symbol) || "Select a token"}
+                        : currency?.symbol) || "Select Token"}
                     </StyledTokenName>
                   )}
                 </RowFixed>
