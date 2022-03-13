@@ -59,8 +59,6 @@ import Loader from "../Loader";
 import CurrencyLogo from "../CurrencyLogo";
 import { NATIVE } from "../../constants/addresses";
 import { useDispatch } from "react-redux";
-import Toggle from "react-styled-toggle";
-import QuestionHelper from "../QuestionHelper";
 
 const StyledInfo = styled(Info)`
   opacity: 0.4;
@@ -84,11 +82,10 @@ interface GelatoLimitOrderProps {
 export default function GelatoLimitOrder({
   showCommonBases = true,
 }: GelatoLimitOrderProps) {
-  const { account, chainId, toggleWalletModal } = useWeb3();
+  const { account, toggleWalletModal } = useWeb3();
 
   const theme = useTheme();
   const recipient = account ?? null;
-  const dispatch = useDispatch();
 
   const {
     handlers: {

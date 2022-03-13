@@ -20,7 +20,12 @@ import {
 } from "./tokens";
 import { BSC_BASES, WBNB_BSC } from "./tokens.bsc";
 import { AVAX_BASES, WAVAX_AVAX } from "./tokens.avax";
-import { SOUL_FANTOM, USDC_FANTOM, WETH_FANTOM, WFTM_FANTOM } from "./tokens.fantom";
+import {
+  SOUL_FANTOM,
+  USDC_FANTOM,
+  WETH_FANTOM,
+  WFTM_FANTOM,
+} from "./tokens.fantom";
 import { WETH_MATIC } from "./tokens.matic";
 
 type ChainTokenList = {

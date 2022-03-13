@@ -10,15 +10,10 @@ export default function useGelatoLimitOrdersLib():
   return useMemo(() => {
     try {
       return chainId && library
-        ? new GelatoLimitOrders(
-            chainId as ChainId,
-            library?.getSigner(),
-          )
+        ? new GelatoLimitOrders(chainId as ChainId, library?.getSigner())
         : undefined;
     } catch (error: any) {
-      console.error(
-        `Could not instantiate LimitOrders: ${error.message}`
-      );
+      console.error(`Could not instantiate LimitOrders: ${error.message}`);
       return undefined;
     }
   }, [chainId, library, handler]);
