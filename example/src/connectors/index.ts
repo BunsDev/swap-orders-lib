@@ -1,10 +1,17 @@
-import { Web3Provider } from '@ethersproject/providers';
-import { InjectedConnector } from '@web3-react/injected-connector';
-import getLibrary from '../utils/getLibrary';
-import { NetworkConnector } from './NetworkConnector';
+import { Web3Provider } from '@ethersproject/providers'
+import { InjectedConnector } from '@web3-react/injected-connector'
+import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
+import { WalletLinkConnector } from '@web3-react/walletlink-connector'
+import { PortisConnector } from '@web3-react/portis-connector'
+import getLibrary from '../utils/getLibrary'
+
+import { FortmaticConnector } from './Fortmatic'
+import { NetworkConnector } from './NetworkConnector'
+// import SORBET_LOGO_URL from '../assets/svg/logo.svg'
 
 const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
-const DEFAULT_NETWORK_ID = Number(process.env.REACT_APP_DEFAULT_NETWORK_ID || 1)
+const FORMATIC_KEY = process.env.REACT_APP_FORTMATIC_KEY
+const PORTIS_ID = process.env.REACT_APP_PORTIS_ID
 
 if (typeof INFURA_KEY === 'undefined') {
   throw new Error(`REACT_APP_INFURA_KEY must be a defined environment variable`)
@@ -16,19 +23,17 @@ const NETWORK_URLS: {
   [1]: `https://mainnet.infura.io/v3/${INFURA_KEY}`,
   // [4]: `https://rinkeby.infura.io/v3/${INFURA_KEY}`,
   [3]: `https://ropsten.infura.io/v3/${INFURA_KEY}`,
-  [5]: `https://goerli.infura.io/v3/${INFURA_KEY}`,
+  // [5]: `https://goerli.infura.io/v3/${INFURA_KEY}`,
   // [42]: `https://kovan.infura.io/v3/${INFURA_KEY}`,
-  [56]: 'https://bsc-dataseed.binance.org',
-  [137]: 'https://rpc-mainnet.maticvigil.com',
-  [43114]: 'https://api.avax.network/ext/bc/C/rpc'
+  [137]: 'https://rpc-mainnet.matic.network',
+  [250]: 'https://rpc.ftm.tools',
 }
 
-const SUPPORTED_CHAIN_IDS = [1, 3, 5, 56, 137, 43114]
+const SUPPORTED_CHAIN_IDS = [1, 3, 137, 250]
 
 export const network = new NetworkConnector({
   urls: NETWORK_URLS,
-  defaultChainId: DEFAULT_NETWORK_ID,
-  pollingInterval: 5000
+  defaultChainId: 1,
 })
 
 let networkLibrary: Web3Provider | undefined
@@ -37,5 +42,32 @@ export function getNetworkLibrary(): Web3Provider {
 }
 
 export const injected = new InjectedConnector({
-  supportedChainIds: SUPPORTED_CHAIN_IDS
+  supportedChainIds: SUPPORTED_CHAIN_IDS,
+})
+
+export const walletconnect = new WalletConnectConnector({
+  supportedChainIds: SUPPORTED_CHAIN_IDS,
+  infuraId: INFURA_KEY, // obviously a hack
+  bridge: 'https://bridge.walletconnect.org',
+  qrcode: true,
+  // pollingInterval: 15000,
+})
+
+// mainnet only
+export const fortmatic = new FortmaticConnector({
+  apiKey: FORMATIC_KEY ?? '',
+  chainId: 1,
+})
+
+// mainnet only
+export const portis = new PortisConnector({
+  dAppId: PORTIS_ID ?? '',
+  networks: [1],
+})
+
+// mainnet only
+export const walletlink = new WalletLinkConnector({
+  url: NETWORK_URLS[1],
+  appName: 'SoulSwap',
+  appLogoUrl: 'https://raw.github.com/SoulSwapFinance/icons/master/token/soul.jpg',
 })

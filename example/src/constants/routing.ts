@@ -2,13 +2,12 @@
 import { Currency, Ether, Token, WETH9 } from '@uniswap/sdk-core'
 import {
   AMPL,
-  BSC_BASES,
   DAI,
-  FANTOM_BASES,
   FEI,
   FRAX,
   FXS,
   MATIC_BASES,
+  FANTOM_BASES,
   MIR,
   renBTC,
   TRIBE,
@@ -17,14 +16,9 @@ import {
   USDC,
   USDT,
   UST,
-  WBNB_BSC,
   WBTC,
   WETH_MATIC,
-  WAVAX_AVAX,
-  AVAX_BASES,
-  SOUL_FANTOM,
-  DAI_FANTOM,
-  WFTM_FANTOM,
+  WETH_FANTOM,
 } from './tokens'
 
 type ChainTokenList = {
@@ -61,18 +55,15 @@ const WETH_ONLY: ChainTokenList = {
   [4]: [WETH9[4]],
   [5]: [WETH9[5]],
   [42]: [WETH9[42]],
-  [56]: [WBNB_BSC],
   [137]: [WETH_MATIC],
-  [43114]: [WAVAX_AVAX],
+  [250]: [WETH_FANTOM],
 }
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
   [1]: [...WETH_ONLY[1], DAI, USDC, USDT, WBTC],
-  [56]: BSC_BASES,
   [137]: MATIC_BASES,
   [250]: FANTOM_BASES,
-  [43114]: AVAX_BASES,
 }
 export const ADDITIONAL_BASES: { [chainId: number]: { [tokenAddress: string]: Token[] } } = {
   [1]: {
@@ -100,24 +91,24 @@ export const CUSTOM_BASES: { [chainId: number]: { [tokenAddress: string]: Token[
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainCurrencyList = {
   [1]: [Ether.onChain(1), DAI, USDC, USDT, WBTC],
-  [56]: BSC_BASES,
   [137]: MATIC_BASES,
   [250]: FANTOM_BASES,
-  [43114]: AVAX_BASES,
 }
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WETH_ONLY,
   [1]: [...WETH_ONLY[1], DAI, USDC, USDT, WBTC],
-  [56]: BSC_BASES,
   [137]: MATIC_BASES,
   [250]: FANTOM_BASES,
-  [43114]: AVAX_BASES,
 }
 
 export const PINNED_PAIRS: { readonly [chainId: number]: [Token, Token][] } = {
-  [250]: [
-    [SOUL_FANTOM, WFTM_FANTOM],
-    [WFTM_FANTOM, SOUL_FANTOM],
+  [1]: [
+    [
+      new Token(1, '0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643', 8, 'cDAI', 'Compound Dai'),
+      new Token(1, '0x39AA39c021dfbaE8faC545936693aC917d5E7563', 8, 'cUSDC', 'Compound USD Coin'),
+    ],
+    [USDC, USDT],
+    [DAI, USDT],
   ],
 }

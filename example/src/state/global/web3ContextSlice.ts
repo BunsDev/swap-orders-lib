@@ -1,0 +1,27 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+// import { ChainId } from 'soulswap-limit-orders-react'
+import { Web3ReactContextInterface } from '@web3-react/core/dist/types'
+import { AppState } from 'state'
+
+export interface Web3ReactContext {
+  chainId?: number | 250
+  account?: Web3ReactContextInterface['account']
+}
+
+const initialState: Web3ReactContext = {}
+
+export const web3ContextSlice = createSlice({
+  name: 'web3Context',
+  initialState,
+  reducers: {
+    updateWeb3Context: (state, action: PayloadAction<Web3ReactContext>) => {
+      return action.payload
+    },
+  },
+})
+
+export const { updateWeb3Context } = web3ContextSlice.actions
+
+export const selectWeb3Context = (state: AppState) => state.web3Context
+
+export default web3ContextSlice.reducer

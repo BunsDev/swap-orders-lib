@@ -23,8 +23,6 @@ export const UNI: { [chainId: number]: Token } = {
   [42]: new Token(42, UNI_ADDRESS[42], 18, 'UNI', 'Uniswap'),
 }
 
-export const USDC_GOERLI = new Token(5, '0x6fb5ef893d44f4f88026430d82d4ef269543cb23', 6, 'USDC', 'USD//C')
-
 export const USDC_MATIC = new Token(137, '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174', 6, 'USDC', 'USD//C')
 export const DAI_MATIC = new Token(137, '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063', 18, 'DAI', 'Dai Stablecoin')
 export const USDT_MATIC = new Token(137, '0x3813e82e6f7098b9583FC0F33a962D02018B6803', 6, 'USDT', 'Tether USD')
@@ -40,41 +38,25 @@ export const WBTC_FANTOM = new Token(250, '0x321162Cd933E2Be498Cd2267a90534A8040
 export const USDT_FANTOM = new Token(250, '0x049d68029688eAbF473097a2fC38ef61633A3C7A', 6, 'USDT', 'Tether USD')
 export const DAI_FANTOM = new Token(250, '0x8d11ec38a3eb5e956b052f67da8bdc9bef8abf3e', 18, 'DAI', 'Dai Stablecoin')
 export const SOUL_FANTOM = new Token(250, '0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07', 18, 'SOUL', 'Soul Power')
-export const SPIRIT_FANTOM = new Token(250, '0x5Cc61A78F164885776AA610fb0FE1257df78E59B', 18, 'SPIRIT', 'SpiritSwap')
 export const WFTM_FANTOM = new Token(250, '0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83', 18, 'WFTM', 'Wrapped Fantom')
-export const FANTOM_BASES = [USDC_FANTOM, DAI_FANTOM, USDT_FANTOM, WETH_FANTOM, SOUL_FANTOM, SPIRIT_FANTOM, WBTC_FANTOM, WFTM_FANTOM]
-
-export const WBNB_BSC = new Token(56, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'WBNB', 'Wrapped BNB')
-export const BUSD_BSC = new Token(56, '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56', 18, 'BUSD', 'Binance-Peg BUSD')
-export const USDC_BSC = new Token(56, '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d', 18, 'USDC', 'Binance-Peg USD Coin')
-export const USDT_BSC = new Token(56, '0x55d398326f99059fF775485246999027B3197955', 18, 'USDT', 'Binance-Peg BSC-USD')
-export const BSC_BASES = [WBNB_BSC, BUSD_BSC, USDC_BSC, USDT_BSC]
-
-export const WAVAX_AVAX = new Token(43114, "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7", 18, "WAVAX", "Wrapped AVAX");
-export const USDC_AVAX = new Token(43114, "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664", 6, "USDC.e", "USD Coin");
-export const USDT_AVAX = new Token(43114, "0xc7198437980c041c805A1EDcbA50c1Ce5db95118", 6, "USDT.e", "Tether USD");
-export const AVAX_BASES = [WAVAX_AVAX, USDC_AVAX, USDT_AVAX]
+export const FANTOM_BASES = [USDC_FANTOM, DAI_FANTOM, USDT_FANTOM, WETH_FANTOM, SOUL_FANTOM, WBTC_FANTOM, WFTM_FANTOM]
 
 export const getBaseTokenLogoURLByTokenSymbol = (symbol: string | undefined): string | undefined => {
   switch (symbol) {
     case 'USDC':
-    case "USDC.e":
       return 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png'
     case 'WFTM':
     case 'FTM':
       return 'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83/logo.png'
     case 'SOUL':
-      return 'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07/logo.png'    
+      return 'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0xe2fb177009ff39f52c0134e8007fa0e4baacbd07/logo.png'
     case 'DAI':
       return 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png'
     case 'USDT':
-    case "USDT.e":
       return 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png'
     case 'ETH':
     case 'WETH':
       return 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png'
-    case 'SPIRIT':
-      return 'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0x5Cc61A78F164885776AA610fb0FE1257df78E59B/logo.png'
     case 'QUICK':
       return 'https://raw.githubusercontent.com/sameepsi/quickswap-interface/master/public/favicon.jpeg'
     case 'WBTC':
@@ -82,14 +64,6 @@ export const getBaseTokenLogoURLByTokenSymbol = (symbol: string | undefined): st
     case 'WMATIC':
     case 'MATIC':
       return 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0/logo.png'
-    case 'WBNB':
-    case 'BNB':
-      return 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xB8c77482e45F1F44dE1745F52C74426C631bDD52/logo.png'
-    case 'BUSD':
-      return 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x4Fabb145d64652a948d72533023f6E7A623C7C53/logo.png'
-    case "WAVAX":
-    case "AVAX":
-      return "https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7/logo.png";
     default:
       return undefined
   }

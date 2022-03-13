@@ -1,25 +1,23 @@
 {
-  "short_name": "SoulSwap: orders-lib",
-  "name": "SoulSwap orders-lib example app.",
+  "name": "SoulSwap",
+  "short_name": "SoulSwap",
+  "lang": "en",
+  "description": "Swap, yield, lend, borrow, leverage, limit, launch all on one community driven ecosystem",
+  "background_color": "#0D0415",
+  "theme_color": "#EE82EE",
+  "dir": "ltr",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "splash_pages": null,
+  "prefer_related_applications": false,
+  "iconPath": "favicon-72x72.png",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "favicon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }

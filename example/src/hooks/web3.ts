@@ -16,26 +16,23 @@ export function useEagerConnect() {
   const { activate, active } = useWeb3ReactCore() // specifically using useWeb3ReactCore because of what this hook does
   const [tried, setTried] = useState(false)
 
-  // then, if that fails, try connecting to an injected connector
   useEffect(() => {
-    if (!active) {
-      injected.isAuthorized().then((isAuthorized: any) => {
-        if (isAuthorized) {
+    injected.isAuthorized().then((isAuthorized) => {
+      if (isAuthorized) {
+        activate(injected, undefined, true).catch(() => {
+          setTried(true)
+        })
+      } else {
+        if (isMobile && window.ethereum) {
           activate(injected, undefined, true).catch(() => {
             setTried(true)
           })
         } else {
-          if (isMobile && window.ethereum) {
-            activate(injected, undefined, true).catch(() => {
-              setTried(true)
-            })
-          } else {
-            setTried(true)
-          }
+          setTried(true)
         }
-      })
-    }
-  }, [activate, active]) // intentionally only running on mount (make sure it's only mounted once :))
+      }
+    })
+  }, [activate]) // intentionally only running on mount (make sure it's only mounted once :))
 
   // if the connection worked, wait until we get confirmation of that to flip the flag
   useEffect(() => {

@@ -1,12 +1,32 @@
-# Development
-## Add `.env` variables
+# SoulSwap Finance Limit Orders Interface
+
+Interface for SoulSwap Finance Limit Orders.
+
+- Website: [SoulSwap.finance](https://SoulSwap.finance/)
+
+## Accessing the SoulSwap Finance Interface
+
+To access the SoulSwap Interface visit [app.SoulSwap.finance](https://app.SoulSwap.finance/).
+
+## Development
+
+### Install Dependencies
+
+```bash
+yarn install
 ```
-REACT_APP_INFURA_KEY=2c3b24c762574d0dabbd5387839ec816
+
+### Run
+
+```bash
+yarn start
 ```
-## Add `limit-orders-react` package to example project
-```
-cd packages/limit-orders-react
-yarn link
-cd ../../example
-yarn link soulswap-limit-orders-react
-```
+
+To use SoulSwap Limit Orders on your app please refer to our [libraries](https://github.com/gelatodigital/limit-orders-lib) repository.
+
+## Contributions
+
+**Please open all pull requests against the `main` branch.**
+CI checks will run against all PRs.
+
+Repo forked and modified from [Uniswap](https://github.com/Uniswap/uniswap-interface).

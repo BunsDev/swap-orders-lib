@@ -1,6 +1,5 @@
 import { createAction } from '@reduxjs/toolkit'
 import { TokenList } from '@uniswap/token-lists'
-import { NetworkInfo } from '../../constants/networks'
 
 export type PopupContent =
   | {
@@ -38,8 +37,3 @@ export const setOpenModal = createAction<ApplicationModal | null>('application/s
 export const addPopup =
   createAction<{ key?: string; removeAfterMs?: number | null; content: PopupContent }>('application/addPopup')
 export const removePopup = createAction<{ key: string }>('application/removePopup')
-
-export const setImplements3085 = createAction<{ implements3085: boolean }>('application/setImplements3085')
-export const updateActiveNetworkVersion = createAction<{ activeNetworkVersion: NetworkInfo }>(
-  'application/updateActiveNetworkVersion'
-)
