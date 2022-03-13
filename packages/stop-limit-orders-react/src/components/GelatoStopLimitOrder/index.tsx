@@ -376,9 +376,6 @@ export default function GelatoStopLimitOrder({
           <AutoColumn gap={"md"}>
             <div style={{ display: "relative" }}>
               <CurrencyInputPanel
-                label={
-                  independentField === Field.OUTPUT ? "From (at most)" : "From"
-                }
                 value={formattedAmounts.input}
                 showMaxButton={showMaxButton}
                 currency={currencies.input}
@@ -528,8 +525,8 @@ export default function GelatoStopLimitOrder({
                           />
                           {/* we need to shorten this string on mobile */}
                           {approvalState === ApprovalState.APPROVED
-                            ? `You can now use your ${currencies.input?.symbol} to place orders.`
-                            : `Allow the Gelato Stop Limit Orders to use your 
+                            ? `${currencies.input?.symbol} Allowed`
+                            : `Approve
                               ${currencies.input?.symbol}`}
                         </span>
                         {approvalState === ApprovalState.PENDING ||
@@ -572,7 +569,7 @@ export default function GelatoStopLimitOrder({
                       error={false}
                     >
                       <Text fontSize={20} fontWeight={500}>
-                        {inputError ? inputError : `Place order`}
+                        {inputError ? inputError : `Place Order`}
                       </Text>
                     </ButtonError>
                   </AutoColumn>
@@ -593,7 +590,7 @@ export default function GelatoStopLimitOrder({
                   error={false}
                 >
                   <Text fontSize={20} fontWeight={500}>
-                    {inputError ? inputError : `Place order`}
+                    {inputError ? inputError : `Place Order`}
                   </Text>
                 </ButtonError>
               )}

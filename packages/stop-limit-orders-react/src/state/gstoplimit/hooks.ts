@@ -318,9 +318,7 @@ export function useDerivedOrderInfo(): DerivedOrderInfo {
       price.greaterThan(trade.executionPrice.asFraction) ||
       price.equalTo(trade.executionPrice.asFraction)
     )
-      inputError =
-        inputError ??
-        "Only possible to place stop limit order below market rate";
+      inputError = inputError ?? "Order Below Market Rate";
   }
 
   // compare input to balance

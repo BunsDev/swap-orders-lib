@@ -523,8 +523,8 @@ export default function GelatoLimitOrder({
                           />
                           {/* we need to shorten this string on mobile */}
                           {approvalState === ApprovalState.APPROVED
-                            ? `You can now use your ${currencies.input?.symbol} to place orders.`
-                            : `Allow the use of your 
+                            ? `${currencies.input?.symbol} Allowed.`
+                            : `Approve
                               ${currencies.input?.symbol}.`}
                         </span>
                         {approvalState === ApprovalState.PENDING ||
@@ -567,7 +567,7 @@ export default function GelatoLimitOrder({
                       error={false}
                     >
                       <Text fontSize={20} fontWeight={500}>
-                        {inputError ? inputError : `Place order`}
+                        {inputError ? inputError : `Place Order`}
                       </Text>
                     </ButtonError>
                   </AutoColumn>
@@ -588,7 +588,7 @@ export default function GelatoLimitOrder({
                   error={false}
                 >
                   <Text fontSize={20} fontWeight={500}>
-                    {inputError ? inputError : `Place order`}
+                    {inputError ? inputError : `Place Order`}
                   </Text>
                 </ButtonError>
               )}

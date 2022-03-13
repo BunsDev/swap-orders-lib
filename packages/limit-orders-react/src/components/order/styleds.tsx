@@ -199,26 +199,8 @@ export const DisclaimerText = () => (
     <AutoColumn gap={"8px"}>
       <>
         <TYPE.main fontSize={14} fontWeight={500}>
-          Real Execution Price:
+          Real Execution Price: Varies (with Gas)
         </TYPE.main>
-        <RowBetween padding={"1px"}>
-          <TYPE.black marginRight={"8px"}>-</TYPE.black>
-          <TYPE.black fontSize={12} fontWeight={400}>
-            Gas fees are paid for by the price spread.
-          </TYPE.black>
-        </RowBetween>
-        <RowBetween padding={"1px"}>
-          <TYPE.black marginRight={"8px"}>-</TYPE.black>
-          <TYPE.black fontSize={12} fontWeight={400}>
-            Gas fees are volatile, so order execution is unpredictable.
-          </TYPE.black>
-        </RowBetween>
-        <RowBetween padding={"1px"}>
-          <TYPE.black marginRight={"8px"}>-</TYPE.black>
-          <TYPE.black fontSize={12} fontWeight={400}>
-            It might take much longer than you expected.
-          </TYPE.black>
-        </RowBetween>
       </>
       <>
         <TYPE.main fontSize={14} fontWeight={500}>

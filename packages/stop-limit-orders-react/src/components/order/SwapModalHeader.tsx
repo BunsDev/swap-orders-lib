@@ -106,12 +106,6 @@ export default function SwapModalHeader({
     <AutoColumn gap={"4px"} style={{ marginTop: "1rem" }}>
       <DarkGreyCard padding="0.75rem 1rem">
         <AutoColumn gap={"8px"}>
-          <RowBetween>
-            <TYPE.body color={theme.text3} fontWeight={500} fontSize={14}>
-              From
-            </TYPE.body>
-            <FiatValue fiatValue={fiatValueInput} />
-          </RowBetween>
           <RowBetween align="center">
             <RowFixed gap={"0px"}>
               <CurrencyLogo
@@ -145,20 +139,6 @@ export default function SwapModalHeader({
       </ArrowWrapper>
       <DarkGreyCard padding="0.75rem 1rem" style={{ marginBottom: "0.25rem" }}>
         <AutoColumn gap={"8px"}>
-          <RowBetween>
-            <TYPE.body color={theme.text3} fontWeight={500} fontSize={14}>
-              To
-            </TYPE.body>
-            <TYPE.body fontSize={14} color={theme.text3}>
-              <FiatValue
-                fiatValue={fiatValueOutput}
-                priceImpact={computeFiatValuePriceImpact(
-                  fiatValueInput,
-                  fiatValueOutput
-                )}
-              />
-            </TYPE.body>
-          </RowBetween>
           <RowBetween align="flex-end">
             <RowFixed gap={"0px"}>
               <CurrencyLogo
@@ -228,7 +208,7 @@ export default function SwapModalHeader({
           </RowBetween>
         </SwapShowAcceptChanges>
       ) : null}
-      {recipient !== null ? (
+      {/* {recipient !== null ? (
         <AutoColumn
           justify="center"
           gap="sm"
@@ -241,7 +221,7 @@ export default function SwapModalHeader({
             </b>
           </TYPE.main>
         </AutoColumn>
-      ) : null}
+      ) : null} */}
     </AutoColumn>
   );
 }

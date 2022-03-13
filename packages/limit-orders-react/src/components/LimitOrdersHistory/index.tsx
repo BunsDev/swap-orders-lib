@@ -166,12 +166,12 @@ export default function LimitOrdersHistory() {
                 onClick={() => handleActiveHeader("open")}
               />
               <LimitOrdersHistoryHeader
-                title={"Cancelled"}
+                title={"Void"}
                 active={orderTab === "cancelled"}
                 onClick={() => handleActiveHeader("cancelled")}
               />
               <LimitOrdersHistoryHeader
-                title={"Executed"}
+                title={"Done"}
                 active={orderTab === "executed"}
                 onClick={() => handleActiveHeader("executed")}
               />

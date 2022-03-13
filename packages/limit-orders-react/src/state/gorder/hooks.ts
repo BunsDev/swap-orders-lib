@@ -338,16 +338,14 @@ export function useDerivedOrderInfo(): DerivedOrderInfo {
       (price.lessThan(trade.executionPrice.asFraction) ||
         price.equalTo(trade.executionPrice.asFraction))
     )
-      inputError =
-        inputError ?? "Only possible to place sell orders above market rate";
+      inputError = inputError ?? "Sell Above Market Rate";
 
     if (
       rateType === Rate.DIV &&
       (price.invert().greaterThan(trade.executionPrice.invert().asFraction) ||
         price.invert().equalTo(trade.executionPrice.invert().asFraction))
     )
-      inputError =
-        inputError ?? "Only possible to place buy orders below market rate";
+      inputError = inputError ?? "Buy Below Market Rate";
   }
 
   const formattedAmounts = {

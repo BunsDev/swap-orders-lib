@@ -101,7 +101,7 @@ export function AdvancedSwapDetails() {
           <RowBetween>
             <RowFixed>
               <TYPE.black fontSize={12} fontWeight={400} color={theme.text2}>
-                Gelato Fee
+                Order Fee
               </TYPE.black>
             </RowFixed>
             <TYPE.black textAlign="right" fontSize={12} color={theme.text1}>
@@ -146,7 +146,7 @@ export function AdvancedSwapDetails() {
                 }`}
               >
                 <TYPE.black fontSize={12} fontWeight={400} color={theme.text2}>
-                  Real Execution Price (?)
+                  Real Execution Price
                 </TYPE.black>{" "}
               </MouseoverTooltip>
             </RowFixed>
@@ -165,7 +165,7 @@ export function AdvancedSwapDetails() {
             text={`The minimum amount you can receive. It includes all fees and maximum slippage tolerance.`}
           >
             <TYPE.black fontSize={12} fontWeight={400} color={theme.text2}>
-              Minimum Received (?)
+              Minimum Received
             </TYPE.black>
           </MouseoverTooltip>
         </RowFixed>
@@ -183,7 +183,7 @@ export function AdvancedSwapDetails() {
             text={`After your order is expired it might never be executed. Please cancel your order once expired`}
           >
             <TYPE.black fontSize={12} fontWeight={400} color={theme.text2}>
-              Expiration date (?)
+              Expiration Date
             </TYPE.black>
           </MouseoverTooltip>
         </RowFixed>

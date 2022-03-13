@@ -428,7 +428,7 @@ export default function CurrencyInputPanel({
                         fontSize={14}
                         style={{ display: "inline", cursor: "pointer" }}
                       >
-                        Real execution price (?)
+                        Real Execution Price
                       </TYPE.body>
                     </MouseoverTooltip>
                   ) : (
