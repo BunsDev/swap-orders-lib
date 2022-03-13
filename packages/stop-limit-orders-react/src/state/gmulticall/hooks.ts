@@ -1,7 +1,7 @@
 import { Interface, FunctionFragment } from "@ethersproject/abi";
 import { BigNumber } from "@ethersproject/bignumber";
 import { Contract } from "@ethersproject/contracts";
-import { isEthereumChain } from "@gelatonetwork/limit-orders-lib/dist/utils";
+import { isEthereumChain } from "soulswap-limit-orders-lib/dist/utils";
 import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useWeb3 } from "../../web3";

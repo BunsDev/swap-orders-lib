@@ -9,7 +9,7 @@ import { useTradeExactIn } from "./useTrade";
 import { tryParseAmount } from "../state/gstoplimit/hooks";
 import { Currency, CurrencyAmount, Price } from "@uniswap/sdk-core";
 import JSBI from "jsbi";
-import { isEthereumChain } from "@gelatonetwork/limit-orders-lib";
+import { isEthereumChain } from "soulswap-limit-orders-lib";
 import { Rate } from "../state/gstoplimit/actions";
 
 export default function useGasOverhead(

@@ -1,6 +1,6 @@
 [![npm version](https://badge.fury.io/js/%40gelatonetwork%2Flimit-orders-lib.svg)](https://badge.fury.io/js/%40gelatonetwork%2Flimit-orders-lib)
 
-# Gelato Limit Order SDK
+# SoulSwap Limit Order SDK
 
 Place limit buy and sell orders on Ethereum, Polygon and Fantom using Gelato Network.
 
@@ -11,11 +11,11 @@ Place limit buy and sell orders on Ethereum, Polygon and Fantom using Gelato Net
 
 ## Installation
 
-`yarn add -D @gelatonetwork/limit-orders-lib`
+`yarn add -D soulswap-limit-orders-lib`
 
 or
 
-`npm install --save-dev @gelatonetwork/limit-orders-lib`
+`npm install --save-dev soulswap-limit-orders-lib`
 
 ## Getting Started
 
@@ -26,18 +26,22 @@ import {
   GelatoLimitOrders,
   GelatoStopLimitOrders,
   utils,
-} from "@gelatonetwork/limit-orders-lib";
+} from "soulswap-limit-orders-lib";
 
 // Supported networks: Mainnet = 1; Ropsten = 3; Polygon = 137; Fantom = 250; Avalanche = 43114;  BSC = 56
 const chainId = 1;
 const signerOrProvider = await provider.getSigner();
 const handler = "uniswap";
+// | "soulswap"
+// | "soulswap_stoplimit"
 // | "spookyswap"
 // | "spookyswap_stoplimit"
 // | "uniswap"
 // | "uniswap_stoplimit"
 // | "quickswap"
 // | "quickswap_stoplimit"
+// | "soulswap"
+// | "soulswap_stoplimit"
 // | "spiritswap"
 // | "spiritswap_stoplimit"
 // | "bombswap"
@@ -351,6 +355,8 @@ export type Handler =
   | "uniswap_stoplimit"
   | "quickswap"
   | "quickswap_stoplimit"
+  | "soulswap"
+  | "soulswap_stoplimit"
   | "spiritswap"
   | "spiritswap_stoplimit"
   | "bombswap"

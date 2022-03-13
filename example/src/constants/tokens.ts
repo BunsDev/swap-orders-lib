@@ -34,6 +34,16 @@ export const WBTC_MATIC = new Token(137, '0x1BFD67037B42Cf73acF2047067bd4F2C47D9
 export const WMATIC_MATIC = new Token(137, '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270', 18, 'WMATIC', 'Wrapped MATIC')
 export const MATIC_BASES = [USDC_MATIC, DAI_MATIC, USDT_MATIC, WETH_MATIC, QUICK_MATIC, WBTC_MATIC, WMATIC_MATIC]
 
+export const USDC_FANTOM = new Token(250, '0x04068da6c83afcfa0e13ba15a6696662335d5b75', 6, 'USDC', 'USD Coin')
+export const WETH_FANTOM = new Token(250, '0x74b23882a30290451A17c44f4F05243b6b58C76d', 18, 'WETH', 'Wrapped ETH')
+export const WBTC_FANTOM = new Token(250, '0x321162Cd933E2Be498Cd2267a90534A804051b11', 8, 'WBTC', 'Wrapped BTC')
+export const USDT_FANTOM = new Token(250, '0x049d68029688eAbF473097a2fC38ef61633A3C7A', 6, 'USDT', 'Tether USD')
+export const DAI_FANTOM = new Token(250, '0x8d11ec38a3eb5e956b052f67da8bdc9bef8abf3e', 18, 'DAI', 'Dai Stablecoin')
+export const SOUL_FANTOM = new Token(250, '0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07', 18, 'SOUL', 'Soul Power')
+export const SPIRIT_FANTOM = new Token(250, '0x5Cc61A78F164885776AA610fb0FE1257df78E59B', 18, 'SPIRIT', 'SpiritSwap')
+export const WFTM_FANTOM = new Token(250, '0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83', 18, 'WFTM', 'Wrapped Fantom')
+export const FANTOM_BASES = [USDC_FANTOM, DAI_FANTOM, USDT_FANTOM, WETH_FANTOM, SOUL_FANTOM, SPIRIT_FANTOM, WBTC_FANTOM, WFTM_FANTOM]
+
 export const WBNB_BSC = new Token(56, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'WBNB', 'Wrapped BNB')
 export const BUSD_BSC = new Token(56, '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56', 18, 'BUSD', 'Binance-Peg BUSD')
 export const USDC_BSC = new Token(56, '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d', 18, 'USDC', 'Binance-Peg USD Coin')
@@ -50,6 +60,11 @@ export const getBaseTokenLogoURLByTokenSymbol = (symbol: string | undefined): st
     case 'USDC':
     case "USDC.e":
       return 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png'
+    case 'WFTM':
+    case 'FTM':
+      return 'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83/logo.png'
+    case 'SOUL':
+      return 'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07/logo.png'    
     case 'DAI':
       return 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png'
     case 'USDT':
@@ -58,6 +73,8 @@ export const getBaseTokenLogoURLByTokenSymbol = (symbol: string | undefined): st
     case 'ETH':
     case 'WETH':
       return 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png'
+    case 'SPIRIT':
+      return 'https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0x5Cc61A78F164885776AA610fb0FE1257df78E59B/logo.png'
     case 'QUICK':
       return 'https://raw.githubusercontent.com/sameepsi/quickswap-interface/master/public/favicon.jpeg'
     case 'WBTC':

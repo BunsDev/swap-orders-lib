@@ -121,8 +121,15 @@ export const getBaseTokenLogoURLByTokenSymbol = (
     case "USDC":
     case "USDC.e":
       return "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png";
+    case "WFTM":
+    case "FTM":
+      return "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83/logo.png";
+    case "SOUL":
+      return "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07/logo.png";
     case "DAI":
       return "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png";
+    case "SPIRIT":
+      return "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0x5Cc61A78F164885776AA610fb0FE1257df78E59B/logo.png";
     case "USDT":
     case "USDT.e":
       return "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png";

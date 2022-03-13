@@ -1,6 +1,6 @@
 import React from "react";
-import { Handler } from "@gelatonetwork/limit-orders-lib";
-export * from "@gelatonetwork/limit-orders-lib";
+import { Handler } from "soulswap-limit-orders-lib";
+export * from "soulswap-limit-orders-lib";
 
 import {
   gelatoReducers as gelatoStopLimitReducers,

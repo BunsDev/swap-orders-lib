@@ -1,7 +1,7 @@
 {
   "name": "soulswap-limit-orders-react",
-  "version": "1.0.0",
-  "description": "React Library for creating limit orders via Gelato",
+  "version": "1.1.0",
+  "description": "React Library for creating limit orders via SoulSwap",
   "keywords": [
     "ethereum",
     "uniswap",
@@ -9,6 +9,7 @@
     "solidity",
     "web3",
     "smart contracts",
+    "soulswap",
     "gelato"
   ],
   "homepage": "https://github.com/gelatodigital/swap-orders-lib/tree/master/packages/limit-orders-react#readme",

@@ -18,11 +18,11 @@ Use Gelato's react component or hooks to place stop-limit orders on Ethereum, Po
 
 ## Installation
 
-`yarn add -D @gelatonetwork/stop-limit-orders-react`
+`yarn add -D soulswap-stop-limit-orders-react`
 
 or
 
-`npm install --save-dev @gelatonetwork/stop-limit-orders-react`
+`npm install --save-dev soulswap-stop-limit-orders-react`
 
 ## Getting started
 
@@ -36,7 +36,7 @@ import { save, load } from "redux-localstorage-simple";
 import {
   gelatoStopLimitReducers,
   GELATO_STOPLIMIT_PERSISTED_KEYS,
-} from "@gelatonetwork/limit-orders-react";
+} from "soulswap-limit-orders-react";
 
 // OPTIONAL: set the gelato persisted keys
 // If don't use `redux-localstorage-simple` you can skip this step and only set the reducers
@@ -64,7 +64,7 @@ In your main file wrap your app with `GelatoProvider`:
 ```tsx
 import React from "react";
 import ReactDOM from "react-dom";
-import { GelatoProvider } from "@gelatonetwork/stop-limit-orders-react";
+import { GelatoProvider } from "soulswap-stop-limit-orders-react";
 import { useActiveWeb3React } from "hooks/web3";
 
 function Gelato({ children }: { children?: React.ReactNode }) {
@@ -76,7 +76,7 @@ function Gelato({ children }: { children?: React.ReactNode }) {
       account={account ?? undefined}
       handler={"uniswap_stoplimit"}
       // It's required to set a specific handler which will be encoded in the order data
-      // Currently we offer support out of the box for "uniswap_stoplimit" "quickswap_stoplimit", "spookyswap_stoplimit", "spiritswap_stoplimit", "pangolin_stoplimit" and "traderjoe_stoplimit"
+      // Currently we offer support out of the box for "uniswap_stoplimit" "quickswap_stoplimit", "soulswap_stoplimit", "spiritswap_stoplimit", "spookyswap_stoplimit", "pangolin_stoplimit" and "traderjoe_stoplimit"
 
       // Please reach out to us if you want to register a custom handler
       // Make sure chainId and handler are valid
@@ -100,11 +100,11 @@ function Gelato({ children }: { children?: React.ReactNode }) {
 }
 ```
 
-If you already using `@gelatonetwork/limit-orders-react` simply render the `Provider` as a child element like so:
+If you already using `soulswap-limit-orders-react` simply render the `Provider` as a child element like so:
 
 ```tsx
-import { GelatoProvider as StopLimitOrderProvider } from '@gelatonetwork/stop-limit-orders-react';
-import { GelatoProvider as LimitOrderProvider } from '@gelatonetwork/limit-orders-react';
+import { GelatoProvider as StopLimitOrderProvider } from 'soulswap-stop-limit-orders-react';
+import { GelatoProvider as LimitOrderProvider } from 'soulswap-limit-orders-react';
 import { useActiveWeb3React } from "hooks/web3";
 
 function Gelato({ children }: { children?: React.ReactNode }) {
@@ -161,7 +161,7 @@ import React from "react";
 import {
   GelatoStopLimitOrderPanel,
   GelatoStopLimitOrdersHistoryPanel,
-} from "@gelatonetwork/stop-limit-orders-react";
+} from "soulswap-stop-limit-orders-react";
 
 export default function LimitOrder() {
   return (
@@ -190,7 +190,7 @@ import React from "react";
 import {
   useGelatoStopLimitOrders,
   GelatoStopLimitOrdersHistoryPanel,
-} from "@gelatonetwork/stop-limit-orders-react";
+} from "soulswap-stop-limit-orders-react";
 
 
 export default function StopLimitOrder() {

@@ -1,8 +1,5 @@
 import { useMemo } from "react";
-import {
-  GelatoStopLimitOrders,
-  ChainId,
-} from "@gelatonetwork/limit-orders-lib";
+import { GelatoStopLimitOrders, ChainId } from "soulswap-limit-orders-lib";
 import { useWeb3 } from "../../web3";
 
 export default function useGelatoStopLimitOrdersLib():

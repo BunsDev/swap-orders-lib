@@ -1,4 +1,4 @@
-import { isEthereumChain } from "@gelatonetwork/limit-orders-lib/dist/utils";
+import { isEthereumChain } from "soulswap-limit-orders-lib/dist/utils";
 import { useEffect, useMemo, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Multicall2 } from "../../abis/types";

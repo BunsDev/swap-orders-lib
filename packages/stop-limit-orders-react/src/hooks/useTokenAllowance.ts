@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import { useSingleCallResult } from "../state/gmulticall/hooks";
 import { useTokenContract } from "./useContract";
 import { useWeb3 } from "../web3";
-import { isEthereumChain } from "@gelatonetwork/limit-orders-lib/dist/utils";
+import { isEthereumChain } from "soulswap-limit-orders-lib/dist/utils";
 
 export function useTokenAllowance(
   token?: Token,

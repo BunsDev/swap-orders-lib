@@ -8,5 +8,5 @@ REACT_APP_INFURA_KEY=2c3b24c762574d0dabbd5387839ec816
 cd packages/limit-orders-react
 yarn link
 cd ../../example
-yarn link @gelatonetwork/limit-orders-react
+yarn link soulswap-limit-orders-react
 ```

@@ -1,7 +1,7 @@
 {
   "name": "soulswap-stop-limit-orders-react",
-  "version": "1.3.0",
-  "description": "React Library for creating stop limit orders via Gelato",
+  "version": "1.0.0",
+  "description": "React Library for creating stop limit orders via SoulSwap",
   "keywords": [
     "ethereum",
     "uniswap",
@@ -9,18 +9,19 @@
     "solidity",
     "web3",
     "smart contracts",
+    "soulswap",
     "gelato"
   ],
-  "homepage": "https://github.com/gelatodigital/swap-orders-lib/blob/master/packages/stop-limit-orders-react/README.md",
+  "homepage": "https://github.com/soulswapfinance/swap-orders-lib/blob/master/packages/stop-limit-orders-react/README.md",
   "bugs": {
-    "url": "https://github.com/gelatodigital/swap-orders-lib/issues"
+    "url": "https://github.com/soulswapfinance/swap-orders-lib/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gelatodigital/swap-orders-lib.git"
+    "url": "git+https://github.com/soulswapfinance/swap-orders-lib.git"
   },
   "license": "GPL-3.0-only",
-  "author": "Gelato Network",
+  "author": "SoulSwap Finance",
   "browser": {
     "./dist/index.esm.js": "./dist/index.esm.js",
     "./dist/index.cjs.js": "./dist/index.cjs.js"
@@ -98,6 +99,7 @@
     "rollup-plugin-scss": "^2.6.1",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-visualizer": "^5.5.2",
+    "soulswap-limit-orders-lib": "^1.0.0",
     "styled-components": "^4.2.0",
     "ts-generator": "0.1.1",
     "ts-node": "9.1.1",
@@ -111,7 +113,6 @@
     "styled-components": "^4.2.0 || ^5.0.0"
   },
   "dependencies": {
-    "@gelatonetwork/limit-orders-lib": "^4.1.0",
     "@popperjs/core": "^2.9.2",
     "@reach/dialog": "^0.15.0",
     "@uniswap/default-token-list": "^2.0.0",
@@ -133,6 +134,7 @@
     "react-virtualized-auto-sizer": "^1.0.5",
     "react-window": "^1.8.6",
     "rebass": "^4.0.7",
+    "soulswap-limit-orders-lib": "^1.0.0",
     "tslib": "^2.3.1",
     "wcag-contrast": "^3.0.0"
   }

@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { StopLimitOrder } from "@gelatonetwork/limit-orders-lib";
+import { StopLimitOrder } from "soulswap-limit-orders-lib";
 import { BigNumber } from "@ethersproject/bignumber";
 import { Overrides } from "@ethersproject/contracts";
 import { TransactionResponse } from "@ethersproject/abstract-provider";

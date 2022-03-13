@@ -60,10 +60,12 @@ export const HANDLERS_ADDRESSES = {
   },
   // UniswapV2Router02Handler
   [CHAIN_ID.FANTOM]: {
+    ["soulswap"]: "0x2ae9b6523FE6b483cB51b1F722755706e5367CE4",
     ["spiritswap"]: "0x5fb00386558ccc219e51b69d8e963ef20b0c267a",
     ["spookyswap"]: "0x228ffd7122d202c0cd24330892881c47b0817c7a",
     ["bombswap"]: "0x87C4Fbd67f6DD8a1B5EFD9879956c728C97afeFe",
     ["defyswap"]: "0x3d401587320522a5e0bb973d10a852430a8edbbd",
+    ["soulswap_stoplimit"]: "0xf99A289109308b484F5338A68Cd96363D7f4F849",
     ["spiritswap_stoplimit"]: "0x6ea82c72732389c5149326e048a46be9f8bec8e8",
     ["spookyswap_stoplimit"]: "0xe912cd26c4a4cfffc175a297f1328ab23313a1a7",
   },
@@ -96,6 +98,7 @@ export const NETWORK_HANDLERS = {
   [CHAIN_ID.ROPSTEN]: ["uniswap", "quickswap_stoplimit"],
   [CHAIN_ID.MATIC]: ["quickswap", "polydex", "cafeswap", "quickswap_stoplimit"],
   [CHAIN_ID.FANTOM]: [
+    "soulswap",
     "spiritswap",
     "spookyswap",
     "bombswap",
@@ -117,7 +120,11 @@ export const NETWORK_STOP_LIMIT_HANDLERS = {
   [CHAIN_ID.ROPSTEN]: ["quickswap_stoplimit"],
   [CHAIN_ID.MATIC]: ["quickswap_stoplimit"],
   [CHAIN_ID.BSC]: ["pancakeswap_stoplimit"],
-  [CHAIN_ID.FANTOM]: ["spookyswap_stoplimit", "spiritswap_stoplimit"],
+  [CHAIN_ID.FANTOM]: [
+    "soulswap_stoplimit",
+    "spookyswap_stoplimit",
+    "spiritswap_stoplimit",
+  ],
   [CHAIN_ID.AVAX]: ["traderjoe_stoplimit", "pangolin_stoplimit"],
 };
 
@@ -215,7 +222,7 @@ export const NATIVE_WRAPPED_TOKEN_ADDRESS = {
   [CHAIN_ID.ROPSTEN]: "0xc778417e063141139fce010982780140aa0cd5ab",
   [CHAIN_ID.GOERLI]: "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6",
   [CHAIN_ID.MATIC]: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-  [CHAIN_ID.FANTOM]: "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+  [CHAIN_ID.FANTOM]: "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
   [CHAIN_ID.BSC]: "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
   [CHAIN_ID.AVAX]: "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
 };

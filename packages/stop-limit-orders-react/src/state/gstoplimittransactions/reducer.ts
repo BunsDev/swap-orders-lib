@@ -1,4 +1,4 @@
-import { StopLimitOrder } from "@gelatonetwork/limit-orders-lib";
+import { StopLimitOrder } from "soulswap-limit-orders-lib";
 import { createReducer } from "@reduxjs/toolkit";
 import {
   confirmOrderCancellation,

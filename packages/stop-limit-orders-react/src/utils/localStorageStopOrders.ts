@@ -1,4 +1,4 @@
-import { StopLimitOrder, constants } from "@gelatonetwork/limit-orders-lib";
+import { StopLimitOrder, constants } from "soulswap-limit-orders-lib";
 import { get, set, clear } from "local-storage";
 
 const LS_STOP_ORDERS = "gstoplimit_";

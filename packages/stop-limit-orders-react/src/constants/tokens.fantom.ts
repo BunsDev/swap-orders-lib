@@ -28,9 +28,16 @@ export const WETH_FANTOM = new Token(
   "WETH",
   "Wrapped ETH"
 );
+export const SOUL_FANTOM = new Token(
+  250,
+  "0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07",
+  18,
+  "SOUL",
+  "SoulPower"
+);
 export const SPIRIT_FANTOM = new Token(
   250,
-  "0x5cc61a78f164885776aa610fb0fe1257df78e59b",
+  "0x5Cc61A78F164885776AA610fb0FE1257df78E59B",
   18,
   "SPIRIT",
   "SpiritSwap"
@@ -44,7 +51,7 @@ export const WBTC_FANTOM = new Token(
 );
 export const WFTM_FANTOM = new Token(
   250,
-  "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+  "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
   18,
   "WFTM",
   "Wrapped Fantom"

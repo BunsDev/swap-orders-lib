@@ -11,6 +11,8 @@ export type Handler =
   | "uniswap_stoplimit"
   | "quickswap"
   | "quickswap_stoplimit"
+  | "soulswap"
+  | "soulswap_stoplimit"
   | "spiritswap"
   | "spiritswap_stoplimit"
   | "bombswap"

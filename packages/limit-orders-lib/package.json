@@ -1,7 +1,7 @@
 {
   "name": "soulswap-limit-orders-lib",
-  "version": "4.1.0",
-  "description": "Library for creating limit orders via Gelato",
+  "version": "1.1.0",
+  "description": "Library for creating limit orders via SoulSwap",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gelatodigital/swap-orders-lib.git"
+    "url": "git+https://github.com/soulswapfinance/swap-orders-lib.git"
   },
   "keywords": [
     "ethereum",
@@ -29,12 +29,12 @@
     "smart contracts",
     "gelato"
   ],
-  "author": "Gelato Network",
+  "author": "SoulSwap Finance",
   "license": "GPL-3.0-only",
   "bugs": {
-    "url": "https://github.com/gelatodigital/swap-orders-lib/issues"
+    "url": "https://github.com/soulswapfinance/swap-orders-lib/issues"
   },
-  "homepage": "https://github.com/gelatodigital/swap-orders-lib/tree/master/packages/limit-orders-lib#readme",
+  "homepage": "https://github.com/soulswapfinance/swap-orders-lib/tree/master/packages/limit-orders-lib#readme",
   "dependencies": {
     "ethers": "^5.4.6",
     "graphql": "^15.5.3",

@@ -4,6 +4,7 @@ import {
   AMPL,
   BSC_BASES,
   DAI,
+  FANTOM_BASES,
   FEI,
   FRAX,
   FXS,
@@ -21,6 +22,9 @@ import {
   WETH_MATIC,
   WAVAX_AVAX,
   AVAX_BASES,
+  SOUL_FANTOM,
+  DAI_FANTOM,
+  WFTM_FANTOM,
 } from './tokens'
 
 type ChainTokenList = {
@@ -67,6 +71,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [1]: [...WETH_ONLY[1], DAI, USDC, USDT, WBTC],
   [56]: BSC_BASES,
   [137]: MATIC_BASES,
+  [250]: FANTOM_BASES,
   [43114]: AVAX_BASES,
 }
 export const ADDITIONAL_BASES: { [chainId: number]: { [tokenAddress: string]: Token[] } } = {
@@ -97,6 +102,7 @@ export const SUGGESTED_BASES: ChainCurrencyList = {
   [1]: [Ether.onChain(1), DAI, USDC, USDT, WBTC],
   [56]: BSC_BASES,
   [137]: MATIC_BASES,
+  [250]: FANTOM_BASES,
   [43114]: AVAX_BASES,
 }
 // used to construct the list of all pairs we consider by default in the frontend
@@ -104,17 +110,17 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WETH_ONLY,
   [1]: [...WETH_ONLY[1], DAI, USDC, USDT, WBTC],
   [56]: BSC_BASES,
-  [127]: MATIC_BASES,
+  [137]: MATIC_BASES,
+  [250]: FANTOM_BASES,
   [43114]: AVAX_BASES,
 }
 
 export const PINNED_PAIRS: { readonly [chainId: number]: [Token, Token][] } = {
-  [1]: [
+  [250]: [
     [
-      new Token(1, '0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643', 8, 'cDAI', 'Compound Dai'),
-      new Token(1, '0x39AA39c021dfbaE8faC545936693aC917d5E7563', 8, 'cUSDC', 'Compound USD Coin'),
+      SOUL_FANTOM, WFTM_FANTOM
     ],
-    [USDC, USDT],
-    [DAI, USDT],
+    [SOUL_FANTOM, DAI_FANTOM],
+    [WFTM_FANTOM, SOUL_FANTOM],
   ],
 }

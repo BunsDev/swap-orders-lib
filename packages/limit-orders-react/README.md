@@ -1,6 +1,6 @@
 [![npm version](https://badge.fury.io/js/%40gelatonetwork%2Flimit-orders-lib.svg)](https://badge.fury.io/js/%40gelatonetwork%2Flimit-orders-lib)
 
-# Gelato Limit Order React SDK
+# SoulSwap Limit Order React SDK
 
 Use Gelato's react component or hooks to place limit buy and sell orders on Ethereum, Polygon and Fantom using Gelato Network.
 
@@ -76,7 +76,7 @@ function Gelato({ children }: { children?: React.ReactNode }) {
       account={account ?? undefined}
 
       // Optionally your can set a specific handler to block trades on a specific handler
-      // Currently we offer support out of the box for "uniswap", "quickswap", "spookyswap" and "spiritswap"
+      // Currently we offer support out of the box for "uniswap", "quickswap", "soulswap", "spookyswap" and "spiritswap"
       // Please reach out to us if you want to register a custom handler
       // Make sure chainId and handler are valid
       // handler={'uniswap'}

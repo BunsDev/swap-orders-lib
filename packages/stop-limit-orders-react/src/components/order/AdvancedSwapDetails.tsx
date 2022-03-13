@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { constants, utils } from "@gelatonetwork/limit-orders-lib";
-import { isEthereumChain } from "@gelatonetwork/limit-orders-lib/dist/utils";
+import { constants, utils } from "soulswap-limit-orders-lib";
+import { isEthereumChain } from "soulswap-limit-orders-lib/dist/utils";
 import { CurrencyAmount } from "@uniswap/sdk-core";
 import { formatUnits } from "@ethersproject/units";
 import React, { useMemo } from "react";

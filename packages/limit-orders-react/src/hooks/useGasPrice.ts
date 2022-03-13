@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { useWeb3 } from "../web3";
 import useInterval from "./useInterval";
-import { isTransactionCostDependentChain } from "@gelatonetwork/limit-orders-lib/dist/utils";
+import { isTransactionCostDependentChain } from "soulswap-limit-orders-lib/dist/utils";
 
 export enum ChainId {
   MAINNET = 1,

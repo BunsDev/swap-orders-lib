@@ -1,4 +1,4 @@
-import { StopLimitOrder } from "@gelatonetwork/limit-orders-lib";
+import { StopLimitOrder } from "soulswap-limit-orders-lib";
 import { createAction } from "@reduxjs/toolkit";
 
 export interface SerializableTransactionReceipt {
