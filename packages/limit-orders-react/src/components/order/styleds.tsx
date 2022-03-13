@@ -204,48 +204,31 @@ export const DisclaimerText = () => (
         <RowBetween padding={"1px"}>
           <TYPE.black marginRight={"8px"}>-</TYPE.black>
           <TYPE.black fontSize={12} fontWeight={400}>
-            Your gas fees are paid for by the spread between your specified
-            Price and the Real Execution Price
+            Gas fees are paid for by the price spread.
           </TYPE.black>
         </RowBetween>
         <RowBetween padding={"1px"}>
           <TYPE.black marginRight={"8px"}>-</TYPE.black>
           <TYPE.black fontSize={12} fontWeight={400}>
-            Gas fees are volatile and thus the exact market price at which your
-            order will execute is unpredictable
+            Gas fees are volatile, so order execution is unpredictable.
           </TYPE.black>
         </RowBetween>
         <RowBetween padding={"1px"}>
           <TYPE.black marginRight={"8px"}>-</TYPE.black>
           <TYPE.black fontSize={12} fontWeight={400}>
-            It might take much longer than you expected, to reach the price that
-            fills your order + fees
+            It might take much longer than you expected.
           </TYPE.black>
         </RowBetween>
       </>
       <>
         <TYPE.main fontSize={14} fontWeight={500}>
-          Fee on Transfer Tokens:
+          Fee on Transfer Tokens: Disabled
         </TYPE.main>
-        <RowBetween padding={"1px"}>
-          <TYPE.black marginRight={"8px"}>-</TYPE.black>
-          <TYPE.black fontSize={12} fontWeight={400}>
-            Fee on transfer tokens should not be used with this system (use at
-            own risk)
-          </TYPE.black>
-        </RowBetween>
       </>
       <>
         <TYPE.main fontSize={14} fontWeight={500}>
-          Expiry Dates:
+          Expiry Dates: Enabled
         </TYPE.main>
-        <RowBetween padding={"1px"}>
-          <TYPE.black marginRight={"8px"}>-</TYPE.black>
-          <TYPE.black fontSize={12} fontWeight={400}>
-            Your limit order has an expiry date, after which it might not be
-            executed any more
-          </TYPE.black>
-        </RowBetween>
       </>
     </AutoColumn>
   </StyledDisclaimerText>
