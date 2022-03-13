@@ -1,9 +1,9 @@
 import { useCallback } from "react";
-import { Order } from "@gelatonetwork/limit-orders-lib";
+import { Order } from "soulswap-limit-orders-lib";
 import { BigNumber } from "@ethersproject/bignumber";
 import { Overrides } from "@ethersproject/contracts";
 import { TransactionResponse } from "@ethersproject/abstract-provider";
-import { isEthereumChain } from "@gelatonetwork/limit-orders-lib/dist/utils";
+import { isEthereumChain } from "soulswap-limit-orders-lib/dist/utils";
 
 import { useOrderActionHandlers } from "../../state/gorder/hooks";
 import { Field } from "../../types";

@@ -1,8 +1,8 @@
-[![npm version](https://badge.fury.io/js/%40gelatonetwork%2Flimit-orders-lib.svg)](https://badge.fury.io/js/%40gelatonetwork%2Flimit-orders-lib)
+[![npm version](https://badge.fury.io/js/soulswap-limit-orders-lib.svg)](https://badge.fury.io/js/soulswap-limit-orders-lib)
 
 # SoulSwap Limit Order React SDK
 
-Use Gelato's react component or hooks to place limit buy and sell orders on Ethereum, Polygon and Fantom using Gelato Network.
+Use SoulSwap's react component or hooks to place limit buy and sell orders on Ethereum, Polygon and Fantom using Gelato Network.
 
 - To hook it up in simple and direct way, using our default style, just use our react component (uniswap trade style widget). It's as is as a couple of lines of code.
 - If your want to build your custom UI you can use our react hooks and plug them in into your components. Check the steps below.
@@ -21,11 +21,11 @@ Use Gelato's react component or hooks to place limit buy and sell orders on Ethe
 
 ## Installation
 
-`yarn add -D @gelatonetwork/limit-orders-react`
+`yarn add -D soulswap-limit-orders-react`
 
 or
 
-`npm install --save-dev @gelatonetwork/limit-orders-react`
+`npm install --save-dev soulswap-limit-orders-react`
 
 ## Getting started
 
@@ -39,7 +39,7 @@ import { save, load } from "redux-localstorage-simple";
 import {
   gelatoReducers,
   GELATO_PERSISTED_KEYS,
-} from "@gelatonetwork/limit-orders-react";
+} from "soulswap-limit-orders-react";
 
 // OPTIONAL: set the gelato persisted keys
 // If don't use `redux-localstorage-simple` you can skip this step and only set the reducers
@@ -64,7 +64,7 @@ In your main file wrap your app with `GelatoProvider`:
 ```tsx
 import React from "react";
 import ReactDOM from "react-dom";
-import { GelatoProvider } from "@gelatonetwork/limit-orders-react";
+import { GelatoProvider } from "soulswap-limit-orders-react";
 import { useActiveWeb3React } from "hooks/web3";
 
 function Gelato({ children }: { children?: React.ReactNode }) {
@@ -129,7 +129,7 @@ import React from "react";
 import {
   GelatoLimitOrderPanel,
   GelatoLimitOrdersHistoryPanel,
-} from "@gelatonetwork/limit-orders-react";
+} from "soulswap-limit-orders-react";
 
 export default function LimitOrder() {
   return (
@@ -159,7 +159,7 @@ import React from "react";
 import {
   useGelatoLimitOrders,
   GelatoLimitOrdersHistoryPanel,
-} from "@gelatonetwork/limit-orders-react";
+} from "soulswap-limit-orders-react";
 
 
 export default function LimitOrder() {
@@ -202,7 +202,7 @@ import {
   CurrencyAmount,
   useCurrency,
   TradePrice
-} from "@gelatonetwork/limit-orders-react";
+} from "soulswap-limit-orders-react";
 
 export default function LimitOrderCard() {
  ...

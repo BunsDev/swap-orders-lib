@@ -1,5 +1,5 @@
 import { TransactionResponse } from "@ethersproject/providers";
-import { Order } from "@gelatonetwork/limit-orders-lib";
+import { Order } from "soulswap-limit-orders-lib";
 import { useCallback, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 

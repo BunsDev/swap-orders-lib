@@ -7,10 +7,10 @@ import Logo from "../Logo";
 import { getBaseTokenLogoURLByTokenSymbol } from "../../constants/tokens";
 import { useCombinedActiveList } from "../../state/glists/hooks";
 import EthereumLogo from "../../assets/images/ethereum-logo.png";
-import { isEthereumChain } from "@gelatonetwork/limit-orders-lib/dist/utils";
+import { isEthereumChain } from "soulswap-limit-orders-lib/dist/utils";
 
 export const getTokenLogoURL = (address: string) =>
-  `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${address}/logo.png`;
+  `https://raw.githubusercontent.com//SoulSwapFinance/assets/master/blockchains/fantom/assets/${address}/logo.png`;
 
 const StyledEthereumLogo = styled.img<{ size: string }>`
   width: ${({ size }) => size};

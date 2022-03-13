@@ -9,7 +9,7 @@ import { useTradeExactIn } from "./useTrade";
 import { tryParseAmount } from "../state/gorder/hooks";
 import { Currency, CurrencyAmount, Price } from "@uniswap/sdk-core";
 import JSBI from "jsbi";
-import { isTransactionCostDependentChain } from "@gelatonetwork/limit-orders-lib/dist/utils";
+import { isTransactionCostDependentChain } from "soulswap-limit-orders-lib/dist/utils";
 import { Rate } from "../state/gorder/actions";
 
 export default function useGasOverhead(

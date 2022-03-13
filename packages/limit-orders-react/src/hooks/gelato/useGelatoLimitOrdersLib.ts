@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { ChainId, GelatoLimitOrders } from "@gelatonetwork/limit-orders-lib";
+import { ChainId, GelatoLimitOrders } from "soulswap-limit-orders-lib";
 import { useWeb3 } from "../../web3";
 import { useFrontrunProtected } from "../../state/gapplication/hooks";
 

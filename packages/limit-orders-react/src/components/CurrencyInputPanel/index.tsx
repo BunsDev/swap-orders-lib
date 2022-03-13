@@ -25,7 +25,7 @@ import { formatTokenAmount } from "../../utils/formatTokenAmount";
 import { MouseoverTooltip } from "../Tooltip";
 import HoverInlineText from "../HoverInlineText";
 import DropDown from "../../assets/images/dropdown.svg";
-import { isTransactionCostDependentChain } from "@gelatonetwork/limit-orders-lib/dist/utils";
+import { isTransactionCostDependentChain } from "soulswap-limit-orders-lib/dist/utils";
 import { Pair } from "../../entities/pair";
 import TradePrice from "../order/TradePrice";
 import { RatePercentage } from "./RatePercentage";

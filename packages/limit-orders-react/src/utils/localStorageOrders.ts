@@ -1,4 +1,4 @@
-import { Order } from "@gelatonetwork/limit-orders-lib";
+import { Order } from "soulswap-limit-orders-lib";
 import { get, set, clear } from "local-storage";
 
 const LS_ORDERS = "gorders_";
