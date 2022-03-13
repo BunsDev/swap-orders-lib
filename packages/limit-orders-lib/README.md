@@ -349,16 +349,16 @@ class GelatoStopLimitOrders extends GelatoBase {
 export declare type ChainId = 1 | 3 | 56 | 137 | 250 | 43114;
 
 export type Handler =
-  | "spookyswap"
-  | "spookyswap_stoplimit"
+  | "soulswap"
+  | "soulswap_stoplimit"
   | "uniswap"
   | "uniswap_stoplimit"
   | "quickswap"
   | "quickswap_stoplimit"
-  | "soulswap"
-  | "soulswap_stoplimit"
   | "spiritswap"
   | "spiritswap_stoplimit"
+  | "spookyswap"
+  | "spookyswap_stoplimit"
   | "bombswap"
   | "polydex"
   | "cafeswap"
