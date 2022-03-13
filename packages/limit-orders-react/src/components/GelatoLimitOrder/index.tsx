@@ -58,8 +58,6 @@ import {
 import Loader from "../Loader";
 import CurrencyLogo from "../CurrencyLogo";
 import { NATIVE } from "../../constants/addresses";
-import { useFrontrunProtected } from "../../state/gapplication/hooks";
-import { updateFrontrunProtected } from "../../state/gapplication/actions";
 import { useDispatch } from "react-redux";
 import Toggle from "react-styled-toggle";
 import QuestionHelper from "../QuestionHelper";
@@ -89,16 +87,8 @@ export default function GelatoLimitOrder({
   const { account, chainId, toggleWalletModal } = useWeb3();
 
   const theme = useTheme();
-
   const recipient = account ?? null;
-
-  const frontrunProtected = useFrontrunProtected();
-
   const dispatch = useDispatch();
-
-  const handleFrontrunToggle = () => {
-    dispatch(updateFrontrunProtected(!frontrunProtected));
-  };
 
   const {
     handlers: {
@@ -478,27 +468,6 @@ export default function GelatoLimitOrder({
               />
             </div>
 
-            {chainId == 1 && (
-              <Row style={{ justifyContent: "flex-end" }}>
-                <RowFixed>
-                  <Toggle
-                    name="flashbots"
-                    disabled={false}
-                    checked={frontrunProtected}
-                    value={""}
-                    onChange={() => handleFrontrunToggle()}
-                    labelLeft={"Frontrun Protection"}
-                    labelRight={""}
-                    height={24}
-                    sliderHeight={16}
-                    width={44}
-                    sliderWidth={16}
-                    translate={22}
-                  />
-                  <QuestionHelper text="With frontrun protection enabled Gelato bots will use mistX Labs flashbots SDK to execute your orders. This feature is still in beta." />
-                </RowFixed>
-              </Row>
-            )}
             <Row
               style={{ justifyContent: !trade ? "center" : "space-between" }}
             >
@@ -558,7 +527,7 @@ export default function GelatoLimitOrder({
                           {/* we need to shorten this string on mobile */}
                           {approvalState === ApprovalState.APPROVED
                             ? `You can now use your ${currencies.input?.symbol} to place orders.`
-                            : `Allow the Gelato Limit Orders to use your 
+                            : `Allow the use of your 
                               ${currencies.input?.symbol}.`}
                         </span>
                         {approvalState === ApprovalState.PENDING ||

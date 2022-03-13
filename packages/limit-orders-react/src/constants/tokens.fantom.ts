@@ -7,6 +7,13 @@ export const USDC_FANTOM = new Token(
   "USDC",
   "USD//C"
 );
+export const NATIVE_FANTOM = new Token(
+  250,
+  "",
+  18,
+  "FTM",
+  "Fantom"
+);
 export const DAI_FANTOM = new Token(
   250,
   "0x8d11ec38a3eb5e956b052f67da8bdc9bef8abf3e",
@@ -35,13 +42,6 @@ export const SOUL_FANTOM = new Token(
   "SOUL",
   "SoulPower"
 );
-// export const SPIRIT_FANTOM = new Token(
-//   250,
-//   "0x5Cc61A78F164885776AA610fb0FE1257df78E59B",
-//   18,
-//   "SPIRIT",
-//   "SpiritSwap"
-// );
 export const WBTC_FANTOM = new Token(
   250,
   "0x321162Cd933E2Be498Cd2267a90534A804051b11",

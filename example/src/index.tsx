@@ -4,8 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createWeb3ReactRoot, Web3ReactProvider } from '@web3-react/core';
-// import { GelatoProvider } from '@gelatonetwork/limit-orders-react';
-import { GelatoProvider } from '@gelatonetwork/stop-limit-orders-react';
+import { GelatoProvider } from 'soulswap-stop-limit-orders-react';
 
 import { Provider } from 'react-redux';
 import { NetworkContextName } from './constants/misc';
@@ -28,6 +27,7 @@ function Gelato({ children }: { children?: React.ReactNode }) {
       account={account ?? undefined}
       toggleWalletModal={toggleWalletModal}
       useDefaultTheme={false}
+      handler={'soulswap'}
     >
       {children}
     </GelatoProvider>

@@ -24,7 +24,7 @@ or
 
 `npm install --save-dev soulswap-stop-limit-orders-react`
 
-## Getting started
+## Getting Started
 
 Wrap your app with the GelatoProvider and pass the gelato reducers into your redux store.
 

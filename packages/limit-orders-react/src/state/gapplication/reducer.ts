@@ -1,14 +1,12 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { updateBlockNumber, updateFrontrunProtected } from "./actions";
+import { updateBlockNumber } from "./actions";
 
 export interface ApplicationState {
   readonly blockNumber: { readonly [chainId: number]: number };
-  readonly frontrunProtected: boolean;
 }
 
 const initialState: ApplicationState = {
-  blockNumber: {},
-  frontrunProtected: false,
+  blockNumber: {}
 };
 
 export default createReducer(initialState, (builder) =>
@@ -23,9 +21,5 @@ export default createReducer(initialState, (builder) =>
           state.blockNumber[chainId]
         );
       }
-    })
-    .addCase(updateFrontrunProtected, (state, action) => {
-      const frontrunProtected = action.payload;
-      state.frontrunProtected = frontrunProtected;
     })
 );

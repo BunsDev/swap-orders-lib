@@ -312,7 +312,7 @@ export function useDerivedOrderInfo(): DerivedOrderInfo {
   }
 
   if (!parsedAmounts.input || !parsedAmounts.output) {
-    inputError = inputError ?? "Enter an amount";
+    inputError = inputError ?? "Enter Amount";
   }
 
   const price = useMemo(() => {

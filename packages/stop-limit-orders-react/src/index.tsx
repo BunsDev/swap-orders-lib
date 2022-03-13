@@ -59,7 +59,7 @@ export function GelatoProvider({
         chainId={chainId}
         library={library}
         account={account}
-        handler={handler}
+        handler={"soulswap_stoplimit"}
         toggleWalletModal={toggleWalletModal}
       >
         <ThemedGlobalStyle />

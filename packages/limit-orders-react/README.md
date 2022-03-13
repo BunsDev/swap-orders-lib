@@ -27,7 +27,7 @@ or
 
 `npm install --save-dev soulswap-limit-orders-react`
 
-## Getting started
+## Getting Started
 
 Wrap your app with the GelatoProvider and pass the gelato reducers into your redux store.
 
@@ -120,9 +120,9 @@ ReactDOM.render(
 );
 ```
 
-## Use the Gelato react component
+## Use the SoulSwap React Component
 
-Using the Gelato react component is the easiest option to get limit orders into your app.
+Using the SoulSwap react component is the easiest option to get limit orders into your app.
 
 ```tsx
 import React from "react";

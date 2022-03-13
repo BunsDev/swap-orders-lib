@@ -297,11 +297,11 @@ export function useDerivedOrderInfo(): DerivedOrderInfo {
   }
 
   if (!parsedAmounts.input || !parsedAmounts.output) {
-    inputError = inputError ?? "Enter an amount";
+    inputError = inputError ?? "Enter Amount";
   }
 
   if (!currencies.input || !currencies.output) {
-    inputError = inputError ?? "Select a token";
+    inputError = inputError ?? "Select Token";
   }
 
   const price = useMemo(() => {

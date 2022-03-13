@@ -2,11 +2,11 @@ import React from 'react';
 import {
   GelatoLimitOrderPanel,
   GelatoLimitOrdersHistoryPanel,
-} from "@gelatonetwork/limit-orders-react";
+} from "soulswap-limit-orders-react";
 import {
   GelatoStopLimitOrderPanel,
   GelatoStopLimitOrdersHistoryPanel
-} from "@gelatonetwork/stop-limit-orders-react";
+} from "soulswap-stop-limit-orders-react";
 import './App.css';
 
 function App() {

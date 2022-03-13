@@ -1,13 +1,11 @@
 import { useMemo } from "react";
 import { ChainId, GelatoLimitOrders } from "soulswap-limit-orders-lib";
 import { useWeb3 } from "../../web3";
-import { useFrontrunProtected } from "../../state/gapplication/hooks";
 
 export default function useGelatoLimitOrdersLib():
   | GelatoLimitOrders
   | undefined {
   const { chainId, library, handler } = useWeb3();
-  const frontrunProtected = useFrontrunProtected();
 
   return useMemo(() => {
     try {
@@ -15,15 +13,13 @@ export default function useGelatoLimitOrdersLib():
         ? new GelatoLimitOrders(
             chainId as ChainId,
             library?.getSigner(),
-            frontrunProtected ? undefined : handler,
-            frontrunProtected
           )
         : undefined;
     } catch (error: any) {
       console.error(
-        `Could not instantiate GelatoLimitOrders: ${error.message}`
+        `Could not instantiate LimitOrders: ${error.message}`
       );
       return undefined;
     }
-  }, [chainId, library, handler, frontrunProtected]);
+  }, [chainId, library, handler]);
 }
