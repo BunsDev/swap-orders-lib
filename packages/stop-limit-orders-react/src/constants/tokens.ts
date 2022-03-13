@@ -121,8 +121,8 @@ export const getBaseTokenLogoURLByTokenSymbol = (
     case "USDC":
     case "USDC.e":
       return "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png";
-    case "WFTM":
     case "FTM":
+    case "WFTM":
       return "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83/logo.png";
     case "SOUL":
       return "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07/logo.png";

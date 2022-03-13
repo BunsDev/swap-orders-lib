@@ -117,10 +117,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
 
 export const PINNED_PAIRS: { readonly [chainId: number]: [Token, Token][] } = {
   [250]: [
-    [
-      SOUL_FANTOM, WFTM_FANTOM
-    ],
-    [SOUL_FANTOM, DAI_FANTOM],
+    [SOUL_FANTOM, WFTM_FANTOM],
     [WFTM_FANTOM, SOUL_FANTOM],
   ],
 }

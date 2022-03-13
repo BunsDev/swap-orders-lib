@@ -7,7 +7,6 @@ export const USDC_FANTOM = new Token(
   "USDC",
   "USD//C"
 );
-export const NATIVE_FANTOM = new Token(250, "", 18, "FTM", "Fantom");
 export const DAI_FANTOM = new Token(
   250,
   "0x8d11ec38a3eb5e956b052f67da8bdc9bef8abf3e",

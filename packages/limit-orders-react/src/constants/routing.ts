@@ -22,7 +22,6 @@ import { BSC_BASES, WBNB_BSC } from "./tokens.bsc";
 import { AVAX_BASES, WAVAX_AVAX } from "./tokens.avax";
 import {
   SOUL_FANTOM,
-  USDC_FANTOM,
   WETH_FANTOM,
   WFTM_FANTOM,
 } from "./tokens.fantom";
@@ -121,8 +120,6 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
 
 export const PINNED_PAIRS: { readonly [chainId: number]: [Token, Token][] } = {
   [250]: [
-    [WETH9[250], SOUL_FANTOM],
-    [SOUL_FANTOM, WFTM_FANTOM],
-    [SOUL_FANTOM, USDC_FANTOM],
+    [WFTM_FANTOM, SOUL_FANTOM]
   ],
 };
