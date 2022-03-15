@@ -37,7 +37,7 @@ const InputPanel = styled.div<{ hideInput?: boolean }>`
   position: relative;
   border-radius: ${({ hideInput }) => (hideInput ? "16px" : "20px")};
   background-color: ${({ theme, hideInput }) =>
-    hideInput ? "transparent" : theme.bg2};
+    hideInput ? "transparent" : theme.bg7};
   z-index: 1;
   width: ${({ hideInput }) => (hideInput ? "100%" : "initial")};
 `;
@@ -58,7 +58,7 @@ const FixedContainer = styled.div`
 const Container = styled.div<{ hideInput: boolean }>`
   border-radius: ${({ hideInput }) => (hideInput ? "16px" : "20px")};
   border: 1px solid
-    ${({ theme, hideInput }) => (hideInput ? " transparent" : theme.bg2)};
+    ${({ theme, hideInput }) => (hideInput ? " transparent" : theme.bg7)};
   background-color: ${({ theme }) => theme.bg7};
   width: ${({ hideInput }) => (hideInput ? "100%" : "initial")};
   :focus,
@@ -76,7 +76,7 @@ const CurrencySelect = styled(ButtonGray)<{
   font-size: 24px;
   font-weight: 500;
   background-color: ${({ selected, theme }) =>
-    selected ? theme.bg0 : theme.primary7};
+    selected ? theme.bg2 : theme.primary7};
   color: ${({ selected, theme }) => (selected ? theme.text1 : theme.white)};
   border-radius: 16px;
   box-shadow: ${({ selected }) =>

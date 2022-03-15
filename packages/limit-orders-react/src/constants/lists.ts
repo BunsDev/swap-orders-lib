@@ -21,6 +21,9 @@ const BA_LIST =
 const QUICKSWAP_LIST =
   "https://unpkg.com/quickswap-default-token-list@1.2.18/build/quickswap-default.tokenlist.json";
 
+const SOULSWAP_LIST =
+  "https://unpkg.com/soulswap-default-token-list@latest/build/soulswap-default.tokenlist.json";
+
 const PANCAKESWAP_LIST =
   "https://tokens.pancakeswap.finance/pancakeswap-extended.json";
 
@@ -35,6 +38,7 @@ export const DEFAULT_LIST_OF_LISTS_MAINNET: string[] = [
   COMPOUND_LIST,
   COINGECKO_LIST,
   GEMINI_LIST,
+  SOULSWAP_LIST,
 ];
 
 export const DEFAULT_LIST_OF_LISTS_MATIC: string[] = [QUICKSWAP_LIST];
@@ -46,6 +50,7 @@ export const DEFAULT_ACTIVE_LIST_URLS: string[] = [
   GEMINI_LIST,
   QUICKSWAP_LIST,
   PANCAKESWAP_LIST,
+  SOULSWAP_LIST,
   TRADERJOE_LIST,
 ];
 
@@ -55,5 +60,6 @@ export const DEFAULT_ACTIVE_LIST_URLS_BY_CHAIN_ID: {
   [1]: DEFAULT_ACTIVE_LIST_URLS,
   [56]: [PANCAKESWAP_LIST],
   [137]: [QUICKSWAP_LIST],
+  [250]: [SOULSWAP_LIST],
   [43114]: [TRADERJOE_LIST],
 };

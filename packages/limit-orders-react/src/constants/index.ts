@@ -20,6 +20,7 @@ import {
 } from "./tokens";
 import { AVAX_BASES, WAVAX_AVAX } from "./tokens.avax";
 import { BSC_BASES, WBNB_BSC } from "./tokens.bsc";
+import { WFTM_FANTOM } from "./tokens.fantom";
 import { WETH_MATIC } from "./tokens.matic";
 
 type ChainTokenList = {
@@ -58,6 +59,7 @@ const WETH_ONLY: ChainTokenList = {
   [42]: [WETH9[42]],
   [56]: [WBNB_BSC],
   [137]: [WETH_MATIC],
+  [250]: [WFTM_FANTOM],
   [43114]: [WAVAX_AVAX],
 };
 // used to construct intermediary pairs for trading

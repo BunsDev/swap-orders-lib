@@ -131,6 +131,7 @@ export const getBaseTokenLogoURLByTokenSymbol = (
     case "SPIRIT":
       return "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0x5Cc61A78F164885776AA610fb0FE1257df78E59B/logo.png";
     case "USDT":
+    case "fUSDT":
     case "USDT.e":
       return "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png";
     case "ETH":
@@ -138,14 +139,15 @@ export const getBaseTokenLogoURLByTokenSymbol = (
       return "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png";
     case "QUICK":
       return "https://i.imgur.com/8G7QIrR.png";
-    case "WBTC":
-      return "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png";
     case "WMATIC":
     case "MATIC":
       return "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0/logo.png";
+    case "WBTC":
+    case "BTC":
+      return "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0x321162Cd933E2Be498Cd2267a90534A804051b11/logo.png";
     case "WBNB":
     case "BNB":
-      return "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xB8c77482e45F1F44dE1745F52C74426C631bDD52/logo.png";
+      return "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0xD67de0e0a0Fd7b15dC8348Bb9BE742F3c5850454/logo.png";
     case "BUSD":
       return "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x4Fabb145d64652a948d72533023f6E7A623C7C53/logo.png";
     case "WAVAX":

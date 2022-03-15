@@ -34,7 +34,7 @@ export const initialState: OrderState = {
     currencyId: NATIVE,
   },
   [Field.OUTPUT]: {
-    currencyId: "",
+    currencyId: "SOUL",
   },
   rateType: Rate.MUL,
   recipient: null,

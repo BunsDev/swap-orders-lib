@@ -5,7 +5,7 @@ export const USDC_FANTOM = new Token(
   "0x04068da6c83afcfa0e13ba15a6696662335d5b75",
   6,
   "USDC",
-  "USD//C"
+  "USD Coin"
 );
 export const DAI_FANTOM = new Token(
   250,
@@ -48,6 +48,13 @@ export const WBTC_FANTOM = new Token(
   8,
   "WBTC",
   "Wrapped BTC"
+);
+export const WBNB_FANTOM = new Token(
+  250,
+  "0xD67de0e0a0Fd7b15dC8348Bb9BE742F3c5850454",
+  18,
+  "WBNB",
+  "Wrapped Binance"
 );
 export const WFTM_FANTOM = new Token(
   250,
