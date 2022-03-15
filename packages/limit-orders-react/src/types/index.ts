@@ -9,6 +9,7 @@ export const NativeCurrency = {
   3: "ETH",
   56: "BNB",
   137: "MATIC",
+  250: "FTM",
   43114: "AVAX",
 };
 

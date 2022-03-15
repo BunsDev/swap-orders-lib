@@ -88,11 +88,11 @@ export default function SwapHeader({
   return (
     <StyledSwapHeader>
       <RowBetween>
-        <RowFixed>
+        {/* <RowFixed>
           <TYPE.black fontWeight={500} fontSize={16}>
             Limit Order
           </TYPE.black>
-        </RowFixed>
+        </RowFixed> */}
         <RowFixed>
           <HeaderTitles>
             <OrdersHeaderTabs
