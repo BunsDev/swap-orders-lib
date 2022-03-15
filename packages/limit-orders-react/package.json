@@ -1,6 +1,6 @@
 {
   "name": "soulswap-limit-orders-react",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "React Library for creating limit orders via SoulSwap",
   "keywords": [
     "ethereum",
@@ -40,6 +40,7 @@
   ],
   "scripts": {
     "build": "npx rollup -c",
+    "retry": "yarn prepare && yarn publish",
     "copy-contracts-types": "cp ./src/contracts/types/*.d.ts ./dist/src/contracts/types",
     "copy-assets": "cp ./src/react/assets/**/*.png ./dist/src/react/assets",
     "format": "prettier --write .",
