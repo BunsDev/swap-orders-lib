@@ -20,7 +20,7 @@ import {
 } from "./styleds";
 import { AdvancedSwapDetails } from "./AdvancedSwapDetails";
 import { LightCard } from "../Card";
-import { DarkGreyCard, PurpleCard } from "../Card";
+import { DarkGreyCard } from "../Card";
 import TradePrice from "../order/TradePrice";
 import useTheme from "../../hooks/useTheme";
 import { useGelatoLimitOrders } from "../../hooks/gelato";

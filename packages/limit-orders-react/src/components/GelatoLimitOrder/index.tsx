@@ -26,7 +26,7 @@ import {
   ButtonLight,
   ButtonPrimary,
 } from "../Button";
-import { GreyCard, PurpleCard } from "../Card";
+import { PurpleCard } from "../Card";
 import { AutoColumn } from "../Column";
 import CurrencyInputPanel from "../CurrencyInputPanel";
 import Row, { AutoRow, RowFixed } from "../Row";
@@ -493,11 +493,11 @@ export default function GelatoLimitOrder({
                   Connect Wallet
                 </ButtonLight>
               ) : routeNotFound && isLoadingRoute ? (
-                <GreyCard style={{ textAlign: "center" }}>
+                <PurpleCard style={{ textAlign: "center" }}>
                   <TYPE.main mb="4px">
                     <Dots>Loading</Dots>
                   </TYPE.main>
-                </GreyCard>
+                </PurpleCard>
               ) : showApproveFlow ? (
                 <AutoRow style={{ flexWrap: "nowrap", width: "100%" }}>
                   <AutoColumn style={{ width: "100%" }} gap="12px">

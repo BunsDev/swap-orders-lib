@@ -8,6 +8,7 @@ import {
   DEFAULT_LIST_OF_LISTS_BSC,
   DEFAULT_LIST_OF_LISTS_MAINNET,
   DEFAULT_LIST_OF_LISTS_MATIC,
+  DEFAULT_LIST_OF_LISTS_FANTOM,
   DEFAULT_LIST_OF_LISTS_AVALANCHE,
 } from "../../constants/lists";
 import { useDispatch } from "react-redux";
@@ -59,6 +60,8 @@ export default function Updater(): null {
         ? DEFAULT_LIST_OF_LISTS_BSC
         : chainId === 137
         ? DEFAULT_LIST_OF_LISTS_MATIC
+        : chainId === 250
+        ? DEFAULT_LIST_OF_LISTS_FANTOM
         : chainId === 43114
         ? DEFAULT_LIST_OF_LISTS_AVALANCHE
         : DEFAULT_LIST_OF_LISTS_MAINNET;
@@ -100,6 +103,21 @@ export default function Updater(): null {
         )
       ) {
         DEFAULT_LIST_OF_LISTS_MATIC.forEach((listURL: string) => {
+          fetchList(library, listURL)
+            .then(() => {
+              dispatch(addList(listURL));
+            })
+            .catch(() => {
+              dispatch(removeList(listURL));
+            });
+        });
+      } else if (
+        chainId === 250 &&
+        !Object.keys(lists).includes(
+          DEFAULT_LIST_OF_LISTS_FANTOM[DEFAULT_LIST_OF_LISTS_FANTOM.length - 1]
+        )
+      ) {
+        DEFAULT_LIST_OF_LISTS_FANTOM.forEach((listURL: string) => {
           fetchList(library, listURL)
             .then(() => {
               dispatch(addList(listURL));

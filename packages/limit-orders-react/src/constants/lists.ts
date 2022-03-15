@@ -43,6 +43,7 @@ export const DEFAULT_LIST_OF_LISTS_MAINNET: string[] = [
 
 export const DEFAULT_LIST_OF_LISTS_MATIC: string[] = [QUICKSWAP_LIST];
 export const DEFAULT_LIST_OF_LISTS_BSC: string[] = [PANCAKESWAP_LIST];
+export const DEFAULT_LIST_OF_LISTS_FANTOM: string[] = [SOULSWAP_LIST];
 export const DEFAULT_LIST_OF_LISTS_AVALANCHE: string[] = [TRADERJOE_LIST];
 
 // default lists to be 'active' aka searched across

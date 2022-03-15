@@ -14,7 +14,7 @@ const StyledInput = styled.input<{
   outline: none;
   border: none;
   flex: 1 1 auto;
-  background-color: ${({ theme }) => theme.bg1};
+  background-color: ${({ theme }) => theme.bg7};
   font-size: ${({ fontSize }) => fontSize ?? "24px"};
   text-align: ${({ align }) => align && align};
   white-space: nowrap;
