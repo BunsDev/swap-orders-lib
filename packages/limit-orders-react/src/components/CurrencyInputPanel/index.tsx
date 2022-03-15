@@ -58,7 +58,7 @@ const FixedContainer = styled.div`
 const Container = styled.div<{ hideInput: boolean }>`
   border-radius: ${({ hideInput }) => (hideInput ? "16px" : "20px")};
   border: 1px solid
-    ${({ theme, hideInput }) => (hideInput ? " transparent" : theme.bg7)};
+    ${({ theme, hideInput }) => (hideInput ? " transparent" : theme.bg2)};
   background-color: ${({ theme }) => theme.bg7};
   width: ${({ hideInput }) => (hideInput ? "100%" : "initial")};
   :focus,

@@ -64,18 +64,18 @@ const StyledNavLink = styled.div<{ active: boolean }>`
     border-radius: 12px;
     font-weight: 600;
     color: ${theme.text1};
-    background-color: ${theme.bg2};
+    background-color: ${theme.purple};
   `}
 
   :hover,
   :focus {
-    color: ${({ theme }) => darken(0.1, theme.purple)};
+    color: ${({ theme }) => darken(0.1, theme.text2)};
   }
 `;
 
 const HeaderTitles = styled(Row)`
   justify-self: center;
-  background-color: ${({ theme }) => theme.bg0};
+  background-color: ${({ theme }) => theme.bg7};
   padding: 4px;
   border-radius: 16px;
   display: grid;

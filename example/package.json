@@ -145,6 +145,6 @@
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "@soulswap/default-token-list": "^1.1.1",
-    "soulswap-limit-orders-react": "^3.1.0"
+    "soulswap-limit-orders-react": "^3.2.0"
   }
 }
