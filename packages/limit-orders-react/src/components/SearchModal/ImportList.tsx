@@ -105,7 +105,7 @@ export function ImportList({
                   <ExternalLink
                     href={`https://tokenlists.org/token-list?url=${listURL}`}
                   >
-                    <TYPE.main fontSize={"12px"} color={theme.blue1}>
+                    <TYPE.main fontSize={"12px"} color={theme.purple}>
                       {listURL}
                     </TYPE.main>
                   </ExternalLink>

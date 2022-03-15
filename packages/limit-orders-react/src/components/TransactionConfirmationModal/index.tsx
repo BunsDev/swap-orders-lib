@@ -107,7 +107,7 @@ export function TransactionSubmittedContent({
           <ArrowUpCircle
             strokeWidth={0.5}
             size={inline ? "40px" : "90px"}
-            color={theme.primary1}
+            color={theme.primary7}
           />
         </ConfirmedIcon>
         <AutoColumn gap="12px" justify={"center"}>
@@ -122,7 +122,7 @@ export function TransactionSubmittedContent({
                 ExplorerDataType.TRANSACTION
               )}
             >
-              <Text fontWeight={500} fontSize={14} color={theme.primary1}>
+              <Text fontWeight={500} fontSize={14} color={theme.primary7}>
                 View on Block Explorer
               </Text>
             </ExternalLink>

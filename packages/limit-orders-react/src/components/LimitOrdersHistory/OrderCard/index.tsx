@@ -32,7 +32,7 @@ import { formatUnits } from "@ethersproject/units";
 const handleColorType = (status: string, theme: DefaultTheme) => {
   switch (status) {
     case "open":
-      return theme.blue1;
+      return theme.purple;
     case "executed":
       return theme.green1;
     case "cancelled":
@@ -145,7 +145,7 @@ const CurrencySelect = styled(ButtonGray)<{
   font-size: 24px;
   font-weight: 500;
   background-color: ${({ selected, theme }) =>
-    selected ? theme.bg0 : theme.primary1};
+    selected ? theme.bg0 : theme.primary7};
   color: ${({ selected, theme }) => (selected ? theme.text1 : theme.white)};
   border-radius: 16px;
   box-shadow: ${({ selected }) =>
@@ -163,11 +163,11 @@ const CurrencySelect = styled(ButtonGray)<{
   &:focus {
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.075);
     background-color: ${({ selected, theme }) =>
-      selected ? theme.bg0 : theme.primary1};
+      selected ? theme.bg0 : theme.primary7};
   }
   :hover {
     background-color: ${({ selected, theme }) =>
-      selected ? theme.bg0 : theme.primary1};
+      selected ? theme.bg0 : theme.primary7};
   }
 `;
 

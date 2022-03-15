@@ -37,7 +37,7 @@ const InputPanel = styled.div<{ hideInput?: boolean }>`
   position: relative;
   border-radius: ${({ hideInput }) => (hideInput ? "16px" : "20px")};
   background-color: ${({ theme, hideInput }) =>
-    hideInput ? "transparent" : theme.bg2};
+    hideInput ? "transparent" : theme.bg7};
   z-index: 1;
   width: ${({ hideInput }) => (hideInput ? "100%" : "initial")};
 `;
@@ -64,7 +64,7 @@ const Container = styled.div<{ hideInput: boolean }>`
   :focus,
   :hover {
     border: 1px solid
-      ${({ theme, hideInput }) => (hideInput ? " transparent" : theme.bg3)};
+      ${({ theme, hideInput }) => (hideInput ? " transparent" : theme.purple)};
   }
 `;
 
@@ -76,7 +76,7 @@ const CurrencySelect = styled(ButtonGray)<{
   font-size: 24px;
   font-weight: 500;
   background-color: ${({ selected, theme }) =>
-    selected ? theme.bg0 : theme.primary1};
+    selected ? theme.bg0 : theme.primary7};
   color: ${({ selected, theme }) => (selected ? theme.text1 : theme.white)};
   border-radius: 16px;
   box-shadow: ${({ selected }) =>
@@ -94,7 +94,7 @@ const CurrencySelect = styled(ButtonGray)<{
   :focus,
   :hover {
     background-color: ${({ selected, theme }) =>
-      selected ? theme.bg2 : darken(0.05, theme.primary1)};
+      selected ? theme.bg2 : darken(0.05, theme.primary7)};
   }
 `;
 
@@ -155,7 +155,7 @@ const StyledBalanceMax = styled.button<{ disabled?: boolean }>`
   font-weight: 500;
   cursor: pointer;
   padding: 0;
-  color: ${({ theme }) => theme.primary1};
+  color: ${({ theme }) => theme.primary7};
   opacity: ${({ disabled }) => (!disabled ? 1 : 0.4)};
   pointer-events: ${({ disabled }) => (!disabled ? "initial" : "none")};
   margin-left: 0.25rem;

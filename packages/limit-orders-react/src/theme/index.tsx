@@ -48,11 +48,11 @@ export function colors(darkMode: boolean): Colors {
     bg0: darkMode ? "#191B1F" : "#FFF",
     bg1: darkMode ? "#212429" : "#F7F8FA",
     bg2: darkMode ? "#2C2F36" : "#EDEEF2",
-    bg3: darkMode ? "#161522" : "#CED0D9",
-    // bg3: darkMode ? "#40444F" : "#CED0D9",
+    bg3: darkMode ? "#40444F" : "#CED0D9",
     bg4: darkMode ? "#565A69" : "#888D9B",
     bg5: darkMode ? "#6C7284" : "#888D9B",
     bg6: darkMode ? "#1A2028" : "#6C7284",
+    bg7: darkMode ? "#161522" : "#CED0D9",
 
     //specialty colors
     modalBG: darkMode ? "rgba(0,0,0,.425)" : "rgba(0,0,0,0.3)",
@@ -64,7 +64,7 @@ export function colors(darkMode: boolean): Colors {
     primary3: darkMode ? "#4D8FEA" : "#FF99C9",
     primary4: darkMode ? "#376bad70" : "#F6DDE8",
     primary5: darkMode ? "#153d6f70" : "#FDEAF1",
-
+    primary7: darkMode ? "#9756F7" : "#FF007A",
     // color text
     primaryText1: darkMode ? "#6da8ff" : "#ff007a",
 
@@ -83,6 +83,7 @@ export function colors(darkMode: boolean): Colors {
     yellow3: "#F3B71E",
     blue1: "#2172E5",
     blue2: "#5199FF",
+    purple: "#B485FF",
 
     error: "#FD4040",
     success: "#27AE60",
@@ -131,7 +132,7 @@ export const TYPE = {
     return <TextWrapper fontWeight={500} color={"text2"} {...props} />;
   },
   link(props: TextProps) {
-    return <TextWrapper fontWeight={500} color={"primary1"} {...props} />;
+    return <TextWrapper fontWeight={500} color={"primary7"} {...props} />;
   },
   label(props: TextProps) {
     return <TextWrapper fontWeight={600} color={"text1"} {...props} />;
@@ -169,7 +170,10 @@ export const TYPE = {
     return <TextWrapper fontWeight={500} color={"text3"} {...props} />;
   },
   gray(props: TextProps) {
-    return <TextWrapper fontWeight={500} color={"bg3"} {...props} />;
+    return <TextWrapper fontWeight={500} color={"bg7"} {...props} />;
+  },
+  purple(props: TextProps) {
+    return <TextWrapper fontWeight={500} color={"purple"} {...props} />;
   },
   italic(props: TextProps) {
     return (
@@ -211,7 +215,7 @@ body {
 }
 
  a {
-   color: ${colors(false).blue1}; 
+   color: ${colors(false).purple}; 
  }
 
 * {

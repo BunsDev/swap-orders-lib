@@ -24,6 +24,7 @@ export interface Colors {
   bg4: Color;
   bg5: Color;
   bg6: Color;
+  bg7: Color;
 
   modalBG: Color;
   advancedBG: Color;
@@ -34,6 +35,7 @@ export interface Colors {
   primary3: Color;
   primary4: Color;
   primary5: Color;
+  primary7: Color;
 
   primaryText1: Color;
 
@@ -52,6 +54,7 @@ export interface Colors {
   yellow3: Color;
   blue1: Color;
   blue2: Color;
+  purple: Color;
 
   error: Color;
   success: Color;

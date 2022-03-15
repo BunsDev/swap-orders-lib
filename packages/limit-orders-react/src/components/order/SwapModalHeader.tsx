@@ -20,7 +20,7 @@ import {
 } from "./styleds";
 import { AdvancedSwapDetails } from "./AdvancedSwapDetails";
 import { LightCard } from "../Card";
-import { DarkGreyCard } from "../Card";
+import { DarkGreyCard, PurpleCard } from "../Card";
 import TradePrice from "../order/TradePrice";
 import useTheme from "../../hooks/useTheme";
 import { useGelatoLimitOrders } from "../../hooks/gelato";
@@ -109,7 +109,7 @@ export default function SwapModalHeader({
                 color={
                   showAcceptChanges &&
                   trade?.tradeType === TradeType.EXACT_OUTPUT
-                    ? theme.primary1
+                    ? theme.primary7
                     : ""
                 }
               >
@@ -170,7 +170,7 @@ export default function SwapModalHeader({
 
       <RowBetween style={{ marginTop: "0.25rem", padding: "0 1rem" }}>
         <TYPE.link
-          color={theme.blue1}
+          color={theme.purple}
           fontWeight={500}
           fontSize={14}
           style={{ cursor: "pointer" }}
@@ -202,7 +202,7 @@ export default function SwapModalHeader({
                 size={20}
                 style={{ marginRight: "8px", minWidth: 24 }}
               />
-              <TYPE.main color={theme.primary1}> Price Updated</TYPE.main>
+              <TYPE.main color={theme.primary7}> Price Updated</TYPE.main>
             </RowFixed>
             <ButtonPrimary
               style={{

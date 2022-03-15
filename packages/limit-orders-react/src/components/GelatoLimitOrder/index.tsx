@@ -26,7 +26,7 @@ import {
   ButtonLight,
   ButtonPrimary,
 } from "../Button";
-import { GreyCard } from "../Card";
+import { GreyCard, PurpleCard } from "../Card";
 import { AutoColumn } from "../Column";
 import CurrencyInputPanel from "../CurrencyInputPanel";
 import Row, { AutoRow, RowFixed } from "../Row";
