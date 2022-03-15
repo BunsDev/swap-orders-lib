@@ -37,7 +37,7 @@ const InputPanel = styled.div<{ hideInput?: boolean }>`
   position: relative;
   border-radius: ${({ hideInput }) => (hideInput ? "16px" : "20px")};
   background-color: ${({ theme, hideInput }) =>
-    hideInput ? "transparent" : theme.bg7};
+    hideInput ? "transparent" : theme.bg2};
   z-index: 1;
   width: ${({ hideInput }) => (hideInput ? "100%" : "initial")};
 `;
@@ -47,7 +47,7 @@ const FixedContainer = styled.div`
   height: 100%;
   position: absolute;
   border-radius: 20px;
-  background-color: ${({ theme }) => theme.bg1};
+  background-color: ${({ theme }) => theme.bg7};
   opacity: 0.95;
   display: flex;
   align-items: center;
@@ -59,7 +59,7 @@ const Container = styled.div<{ hideInput: boolean }>`
   border-radius: ${({ hideInput }) => (hideInput ? "16px" : "20px")};
   border: 1px solid
     ${({ theme, hideInput }) => (hideInput ? " transparent" : theme.bg2)};
-  background-color: ${({ theme }) => theme.bg1};
+  background-color: ${({ theme }) => theme.bg7};
   width: ${({ hideInput }) => (hideInput ? "100%" : "initial")};
   :focus,
   :hover {

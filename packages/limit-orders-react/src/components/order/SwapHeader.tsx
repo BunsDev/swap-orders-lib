@@ -66,7 +66,7 @@ const OrdersHeaderTabs = ({
   onClick: () => void;
 }) => (
   <StyledOrdersHeaderTabs>
-    <TYPE.black fontWeight={500} fontSize={16}>
+    <TYPE.black fontWeight={500} fontSize={12}>
       <StyledNavLink
         id={`order-history-nav-link`}
         active={active}
