@@ -218,4 +218,3 @@ export async function getEtherBalance(address: string, library: Web3Provider) {
   }
   return library.getBalance(address);
 }
-
