@@ -1,20 +1,36 @@
-import React, { ReactNode, useCallback, useState } from "react";
-import { ChevronDownIcon } from "@heroicons/react/outline";
-import { Currency, CurrencyAmount, Percent, Token } from "@uniswap/sdk-core";
-import { Pair } from "@uniswap/v2-sdk";
-import { useWeb3 } from "../../web3";
-
-import { Input as NumericalInput } from "../NumericalInput";
-// import selectCoinAnimation from 'animation/select-coin.json'
-import CurrencySearchModal from "../SearchModal/CurrencySearchModal";
+import {
+  Currency,
+  CurrencyAmount,
+  Percent,
+  Price,
+  Token,
+} from "@uniswap/sdk-core";
+import React, { useState, useCallback, Fragment, useMemo } from "react";
+import styled from "styled-components/macro";
+import { darken } from "polished";
 import { useCurrencyBalance } from "../../hooks/Balances";
-import classNames from "../../utils/classNames";
+import CurrencySearchModal from "../SearchModal/CurrencySearchModal";
 import CurrencyLogo from "../CurrencyLogo";
-// import DoubleCurrencyLogo from '../DoubleLogo'
-// import Input from '../Input'
+import DoubleCurrencyLogo from "../DoubleLogo";
+import { ButtonGray } from "../Button";
+import { RowBetween, RowFixed } from "../Row";
+import { TYPE } from "../../theme";
+import { Input as NumericalInput } from "../NumericalInput";
+import { useWeb3 } from "../../web3";
+import useTheme from "../../hooks/useTheme";
+import { Lock } from "react-feather";
+import { AutoColumn } from "../Column";
 import { FiatValue } from "./FiatValue";
-import { SOUL_FANTOM } from "../../constants/tokens.fantom";
-import styled from "styled-components";
+import { formatTokenAmount } from "../../utils/formatTokenAmount";
+import { MouseoverTooltip } from "../Tooltip";
+import HoverInlineText from "../HoverInlineText";
+import DropDown from "../../assets/images/dropdown.svg";
+import { isTransactionCostDependentChain } from "soulswap-limit-orders-lib/dist/utils";
+import { Pair } from "../../entities/pair";
+import TradePrice from "../order/TradePrice";
+import { RatePercentage } from "./RatePercentage";
+import { Rate } from "../../state/gorder/actions";
+import Loader from "../Loader";
 
 const InputPanel = styled.div<{ hideInput?: boolean }>`
   ${({ theme }) => theme.flexColumnNoWrap}
@@ -26,22 +42,141 @@ const InputPanel = styled.div<{ hideInput?: boolean }>`
   width: ${({ hideInput }) => (hideInput ? "100%" : "initial")};
 `;
 
+const FixedContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 20px;
+  background-color: ${({ theme }) => theme.bg1};
+  opacity: 0.95;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+`;
+
+const Container = styled.div<{ hideInput: boolean }>`
+  border-radius: ${({ hideInput }) => (hideInput ? "16px" : "20px")};
+  border: 1px solid
+    ${({ theme, hideInput }) => (hideInput ? " transparent" : theme.bg2)};
+  background-color: ${({ theme }) => theme.bg1};
+  width: ${({ hideInput }) => (hideInput ? "100%" : "initial")};
+  :focus,
+  :hover {
+    border: 1px solid
+      ${({ theme, hideInput }) => (hideInput ? " transparent" : theme.bg3)};
+  }
+`;
+
+const CurrencySelect = styled(ButtonGray)<{
+  selected: boolean;
+  hideInput?: boolean;
+}>`
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+  background-color: ${({ selected, theme }) =>
+    selected ? theme.bg0 : theme.primary1};
+  color: ${({ selected, theme }) => (selected ? theme.text1 : theme.white)};
+  border-radius: 16px;
+  box-shadow: ${({ selected }) =>
+    selected ? "none" : "0px 6px 10px rgba(0, 0, 0, 0.075)"};
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.075);
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  height: ${({ hideInput }) => (hideInput ? "2.8rem" : "2.4rem")};
+  width: ${({ hideInput }) => (hideInput ? "100%" : "initial")};
+  padding: 0 8px;
+  justify-content: space-between;
+  margin-right: ${({ hideInput }) => (hideInput ? "0" : "12px")};
+  :focus,
+  :hover {
+    background-color: ${({ selected, theme }) =>
+      selected ? theme.bg2 : darken(0.05, theme.primary1)};
+  }
+`;
+
 const InputRow = styled.div<{ selected: boolean }>`
   ${({ theme }) => theme.flexRowNoWrap}
   align-items: center;
   padding: ${({ selected }) =>
     selected ? " 1rem 1rem 0.75rem 1rem" : "1rem 1rem 0.75rem 1rem"};
 `;
+
+const LabelRow = styled.div`
+  ${({ theme }) => theme.flexRowNoWrap}
+  align-items: center;
+  color: ${({ theme }) => theme.text1};
+  font-size: 0.75rem;
+  line-height: 1rem;
+  padding: 0 1rem 1rem;
+  span:hover {
+    cursor: pointer;
+    color: ${({ theme }) => darken(0.2, theme.text2)};
+  }
+`;
+
+const FiatRow = styled(LabelRow)`
+  justify-content: flex-end;
+`;
+
+const Aligner = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+const StyledDropDown = styled(DropDown)<{ selected: boolean }>`
+  margin: 0 0.25rem 0 0.35rem;
+  height: 35%;
+
+  path {
+    stroke: ${({ selected, theme }) => (selected ? theme.text1 : theme.white)};
+    stroke-width: 1.5px;
+  }
+`;
+
+const StyledTokenName = styled.span<{ active?: boolean }>`
+  ${({ active }) =>
+    active
+      ? "  margin: 0 0.25rem 0 0.25rem;"
+      : "  margin: 0 0.25rem 0 0.25rem;"}
+  font-size:  ${({ active }) => (active ? "18px" : "18px")};
+`;
+
+const StyledBalanceMax = styled.button<{ disabled?: boolean }>`
+  background-color: transparent;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  color: ${({ theme }) => theme.primary1};
+  opacity: ${({ disabled }) => (!disabled ? 1 : 0.4)};
+  pointer-events: ${({ disabled }) => (!disabled ? "initial" : "none")};
+  margin-left: 0.25rem;
+
+  :focus {
+    outline: none;
+  }
+
+  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+    margin-right: 0.5rem;
+  `};
+`;
+
 interface CurrencyInputPanelProps {
-  value?: string;
-  onUserInput?: (value?: "") => void;
-  onHalf?: () => void;
+  value: string;
+  onUserInput: (value: string) => void;
   onMax?: () => void;
   showMaxButton: boolean;
   label?: string;
   onCurrencySelect?: (currency: Currency) => void;
   currency?: Currency | null;
-  disableCurrencySelect?: boolean;
   hideBalance?: boolean;
   pair?: Pair | null;
   hideInput?: boolean;
@@ -50,94 +185,141 @@ interface CurrencyInputPanelProps {
   priceImpact?: Percent;
   id: string;
   showCommonBases?: boolean;
-  allowManageTokenList?: boolean;
-  renderBalance?: (amount: CurrencyAmount<Currency>) => ReactNode;
-  locked?: boolean;
   customBalanceText?: string;
-  showSearch?: boolean;
+  locked?: boolean;
+  showCurrencySelector?: boolean;
+  showRate?: boolean;
+  isInvertedRate?: boolean;
+  realExecutionPrice?: Price<Currency, Currency> | undefined;
+  realExecutionPriceAsString?: string | undefined;
+  gasPrice?: number;
+  rateType?: Rate;
 }
 
 export default function CurrencyInputPanel({
   value,
   onUserInput,
-  onHalf,
   onMax,
   showMaxButton,
-  label = "Input",
   onCurrencySelect,
   currency,
-  disableCurrencySelect = false,
   otherCurrency,
   id,
   showCommonBases,
-  renderBalance,
+  customBalanceText,
   fiatValue,
   priceImpact,
   hideBalance = false,
   pair = null, // used for double token logo
   hideInput = false,
   locked = false,
-  customBalanceText,
-  allowManageTokenList = true,
-  showSearch = true,
+  showCurrencySelector = true,
+  showRate = false,
+  isInvertedRate = false,
+  realExecutionPrice,
+  realExecutionPriceAsString,
+  rateType,
+  ...rest
 }: CurrencyInputPanelProps) {
   const [modalOpen, setModalOpen] = useState(false);
-  const { account } = useWeb3();
+  const [showInverted, setShowInverted] = useState<boolean>(true);
+
+  const { account, chainId } = useWeb3();
   const selectedCurrencyBalance = useCurrencyBalance(
     account ?? undefined,
     currency ?? undefined
   );
+  const theme = useTheme();
 
   const handleDismissSearch = useCallback(() => {
     setModalOpen(false);
   }, [setModalOpen]);
 
+  const isTransactionCostDependentChainBool =
+    chainId && isTransactionCostDependentChain(chainId);
+
+  const rate = useMemo(
+    () =>
+      currency && otherCurrency && value
+        ? `1 ${
+            isInvertedRate ? otherCurrency?.symbol : currency?.symbol
+          } = ${value} ${
+            isInvertedRate ? currency?.symbol : otherCurrency?.symbol
+          }`
+        : undefined,
+    [currency, isInvertedRate, otherCurrency, value]
+  );
+
+  const realExecutionRateExplainer = useMemo(
+    () =>
+      currency && otherCurrency && realExecutionPriceAsString
+        ? realExecutionPriceAsString === "never executes"
+          ? realExecutionPriceAsString
+          : `1 ${
+              isInvertedRate ? otherCurrency?.symbol : currency?.symbol
+            } = ${realExecutionPriceAsString} ${
+              isInvertedRate ? currency?.symbol : otherCurrency?.symbol
+            }`
+        : undefined,
+    [currency, isInvertedRate, otherCurrency, realExecutionPriceAsString]
+  );
+
   return (
-    <div
-      id={id}
-      className={classNames(hideInput ? "p-4" : "p-5", "rounded bg-dark-800")}
-    >
-      <div className="flex flex-col justify-between space-y-3 sm:space-y-0 sm:flex-row">
-        <div className={classNames("w-full sm:w-2/5")}>
-          <button
-            type="button"
-            className={classNames(
-              !!currency ? "text-primary" : "text-high-emphesis",
-              "open-currency-select-button h-full outline-none select-none cursor-pointer border-none text-xl font-medium items-center"
-            )}
-            onClick={() => {
-              if (onCurrencySelect) {
-                setModalOpen(true);
-              }
-            }}
-          >
-            <div className="flex">
-              <div className="flex items-center">
-                <CurrencyLogo
-                  currency={currency ? currency : SOUL_FANTOM}
-                  size={"54px"}
-                />
-              </div>
-              {pair ? (
-                <span
-                  className={classNames(
-                    "pair-name-container",
-                    Boolean(currency && currency.symbol)
-                      ? "text-2xl"
-                      : "text-xs"
-                  )}
-                >
-                  {pair?.token0.symbol}:{pair?.token1.symbol}
-                </span>
-              ) : (
-                <div className="flex flex-1 flex-col items-start justify-center mx-3.5">
-                  {label && (
-                    <div className="text-xs font-medium text-secondary whitespace-nowrap">
-                      {label}
-                    </div>
-                  )}
-                  <div className="flex items-center">
-                    <div className="text-lg font-bold token-symbol-container md:text-2xl">
+    <InputPanel id={id} hideInput={hideInput} {...rest}>
+      {locked && (
+        <FixedContainer>
+          <AutoColumn gap="sm" justify="center">
+            <Lock />
+            <TYPE.label fontSize="12px" textAlign="center">
+              The market price is outside your specified price range.
+              Single-asset deposit only.
+            </TYPE.label>
+          </AutoColumn>
+        </FixedContainer>
+      )}
+      <Container hideInput={hideInput}>
+        <InputRow
+          style={hideInput ? { padding: "0", borderRadius: "8px" } : {}}
+          selected={!onCurrencySelect}
+        >
+          {showCurrencySelector ? (
+            <CurrencySelect
+              selected={!!currency}
+              hideInput={hideInput}
+              className="open-currency-select-button"
+              onClick={() => {
+                if (onCurrencySelect) {
+                  setModalOpen(true);
+                }
+              }}
+            >
+              <Aligner>
+                <RowFixed>
+                  {pair ? (
+                    <span style={{ marginRight: "0.5rem" }}>
+                      <DoubleCurrencyLogo
+                        currency0={pair.token0}
+                        currency1={pair.token1}
+                        size={24}
+                        margin={true}
+                      />
+                    </span>
+                  ) : currency ? (
+                    <CurrencyLogo
+                      style={{ marginRight: "0.5rem" }}
+                      currency={currency}
+                      size={"24px"}
+                    />
+                  ) : null}
+                  {pair ? (
+                    <StyledTokenName className="pair-name-container">
+                      {pair?.token0.symbol}:{pair?.token1.symbol}
+                    </StyledTokenName>
+                  ) : (
+                    <StyledTokenName
+                      className="token-symbol-container"
+                      active={Boolean(currency && currency.symbol)}
+                    >
                       {(currency &&
                       currency.symbol &&
                       currency.symbol.length > 20
@@ -147,99 +329,147 @@ export default function CurrencyInputPanel({
                             currency.symbol.length - 5,
                             currency.symbol.length
                           )
-                        : currency?.symbol) || (
-                        <div className="px-2 py-1 mt-1 text-xs font-medium bg-transparent border rounded-full hover:bg-primary border-low-emphesis text-secondary whitespace-nowrap ">
-                          {`Select Token`}
-                        </div>
-                      )}
-                    </div>
+                        : currency?.symbol) || "Select Token"}
+                    </StyledTokenName>
+                  )}
+                </RowFixed>
+                {onCurrencySelect && <StyledDropDown selected={!!currency} />}
+              </Aligner>
+            </CurrencySelect>
+          ) : null}
 
-                    {!disableCurrencySelect && currency && (
-                      <ChevronDownIcon
-                        width={16}
-                        height={16}
-                        className="ml-2 stroke-current"
-                      />
-                    )}
-                  </div>
-                </div>
-              )}
-            </div>
-          </button>
-        </div>
-        {!hideInput && (
-          <div
-            className={classNames(
-              "flex items-center w-full space-x-3 rounded bg-dark-900 focus:bg-dark-700 p-3 sm:w-3/5"
-            )}
-          >
-            <>
-              {/* <Input.Numeric
-                id="token-amount-input"
-                value={Number(value)}
-                onUserInput={(val) => {
-                  onUserInput(val)
-                }}
-              /> */}
-              <InputRow
-                style={hideInput ? { padding: "0", borderRadius: "8px" } : {}}
-                selected={!onCurrencySelect}
-              ></InputRow>
-              {!hideBalance && currency && selectedCurrencyBalance ? (
-                <div className="flex flex-cols-2">
-                  <div
-                    onClick={onHalf}
-                    className="text-xs font-medium text-right cursor-pointer text-low-emphesis"
-                  >
-                    {renderBalance ? (
-                      renderBalance(selectedCurrencyBalance)
-                    ) : (
-                      <>
-                        {/* {i18n._(t`Balance:`)}  */}
-                        {`50%`}
-                        {/* {formatCurrencyAmount(selectedCurrencyBalance.divide(2), 4)} {currency.symbol} */}
-                        {/* {selectedCurrencyBalance?.toSignificant(6, { groupSeparator: ',' }) || '0'} {currency?.symbol} */}
-                      </>
-                    )}
-                  </div>
-                  <br />
-                  <div
+          {showRate && (
+            <RowFixed style={{ height: "17px" }}>
+              <MouseoverTooltip
+                text={`The virtual price that will determine your output amount. ${
+                  isTransactionCostDependentChainBool
+                    ? "It does not account execution gas costs. For that check the real execution rate below."
+                    : ""
+                } ${rate ? rate + "." : ""}`}
+              >
+                <TYPE.main>{"Price"}</TYPE.main>
+              </MouseoverTooltip>
+            </RowFixed>
+          )}
+
+          {!hideInput && (
+            <NumericalInput
+              className="token-amount-input"
+              value={value}
+              onUserInput={(val) => {
+                onUserInput(val);
+              }}
+            />
+          )}
+        </InputRow>
+        {!hideInput && !hideBalance && !showRate && (
+          <FiatRow>
+            <RowBetween>
+              {account ? (
+                <RowFixed style={{ height: "17px" }}>
+                  <TYPE.body
                     onClick={onMax}
-                    className="text-xs font-medium text-right cursor-pointer text-low-emphesis"
+                    color={theme.text2}
+                    fontWeight={400}
+                    fontSize={14}
+                    style={{ display: "inline", cursor: "pointer" }}
                   >
-                    {renderBalance ? (
-                      renderBalance(selectedCurrencyBalance)
-                    ) : (
-                      <>
-                        {/* {i18n._(t`Balance:`)}  */}
-                        {/* {i18n._(t`Balance:`)}  */}
-                        {/* {formatCurrencyAmount(selectedCurrencyBalance, 4)} {currency.symbol} */}
-                        {selectedCurrencyBalance?.toSignificant(6, {
-                          groupSeparator: ",",
-                        }) || "0"}{" "}
-                        {currency?.symbol}
-                      </>
-                    )}
-                  </div>
-                  <FiatValue fiatValue={fiatValue} priceImpact={priceImpact} />
-                </div>
-              ) : null}
-            </>
-          </div>
+                    {!hideBalance && !!currency && selectedCurrencyBalance
+                      ? (customBalanceText ?? "Balance: ") +
+                        formatTokenAmount(selectedCurrencyBalance, 4) +
+                        " " +
+                        currency.symbol
+                      : "-"}
+                  </TYPE.body>
+                  {showMaxButton && selectedCurrencyBalance ? (
+                    <StyledBalanceMax onClick={onMax}>(Max)</StyledBalanceMax>
+                  ) : null}
+                </RowFixed>
+              ) : (
+                "-"
+              )}
+              {!rateType ? (
+                <FiatValue fiatValue={fiatValue} priceImpact={priceImpact} />
+              ) : (
+                //  Only show on output panel
+                <RatePercentage
+                  priceImpact={priceImpact}
+                  rateType={rateType}
+                  inputCurrency={otherCurrency}
+                  outputCurrency={currency}
+                />
+              )}
+            </RowBetween>
+          </FiatRow>
         )}
-      </div>
-      {!disableCurrencySelect && onCurrencySelect && (
-        <CurrencySearchModal //.Controlled
-          // open={modalOpen}
+
+        {showRate &&
+          value &&
+          currency &&
+          otherCurrency &&
+          isTransactionCostDependentChainBool && (
+            <Fragment>
+              <FiatRow>
+                <RowBetween>
+                  {currency && otherCurrency ? (
+                    <MouseoverTooltip
+                      text={`The real execution price. Takes into account the gas necessary to execute your order and guarantees that your desired rate is fulfilled. It fluctuates according to gas prices. ${
+                        rate
+                          ? `Assuming current gas price it should execute when ` +
+                            realExecutionRateExplainer +
+                            "."
+                          : ""
+                      }`}
+                    >
+                      <TYPE.body
+                        onClick={onMax}
+                        color={theme.text2}
+                        fontWeight={400}
+                        fontSize={14}
+                        style={{ display: "inline", cursor: "pointer" }}
+                      >
+                        Real Execution Price
+                      </TYPE.body>
+                    </MouseoverTooltip>
+                  ) : (
+                    "-"
+                  )}
+                  {realExecutionPrice ? (
+                    <TradePrice
+                      price={realExecutionPrice}
+                      showInverted={showInverted}
+                      setShowInverted={setShowInverted}
+                    />
+                  ) : (
+                    <TYPE.body
+                      fontSize={14}
+                      color={
+                        realExecutionRateExplainer ? theme.text2 : theme.text4
+                      }
+                    >
+                      {/* {realExecutionRateExplainer ? "~" : ""} */}
+                      {realExecutionRateExplainer ? (
+                        <HoverInlineText text={realExecutionRateExplainer} />
+                      ) : (
+                        <Loader />
+                      )}
+                    </TYPE.body>
+                  )}
+                </RowBetween>
+              </FiatRow>
+            </Fragment>
+          )}
+      </Container>
+      {onCurrencySelect && (
+        <CurrencySearchModal
+          isOpen={modalOpen}
           onDismiss={handleDismissSearch}
           onCurrencySelect={onCurrencySelect}
-          selectedCurrency={currency ?? undefined}
-          otherSelectedCurrency={otherCurrency ?? undefined}
+          selectedCurrency={currency}
+          otherSelectedCurrency={otherCurrency}
           showCommonBases={showCommonBases}
-          isOpen={false} // allowManageTokenList={allowManageTokenList}
-          // showSearch={showSearch}
         />
       )}
-    </div>
+    </InputPanel>
   );
 }

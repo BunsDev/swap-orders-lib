@@ -124,7 +124,7 @@ function CurrencyRow({
   const selectedTokenList = useCombinedActiveList();
   const isOnSelectedList = isTokenOnList(
     selectedTokenList,
-    !currency.isNative ? currency : undefined
+    currency.isToken ? currency : undefined
   );
   const customAdded = useIsUserAddedToken(currency);
   const balance = useCurrencyBalance(account ?? undefined, currency);
