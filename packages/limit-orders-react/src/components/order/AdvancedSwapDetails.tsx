@@ -151,7 +151,7 @@ export function AdvancedSwapDetails() {
                 }`}
               >
                 <TYPE.black fontSize={12} fontWeight={400} color={theme.text2}>
-                  Real Execution Price
+                  Execution Price
                 </TYPE.black>{" "}
               </MouseoverTooltip>
             </RowFixed>

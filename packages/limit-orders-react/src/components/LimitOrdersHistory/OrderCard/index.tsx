@@ -58,13 +58,13 @@ const OrderPanel = styled.div`
 const Container = styled.div<{ hideInput: boolean }>`
   border-radius: ${({ hideInput }) => (hideInput ? "16px" : "20px")};
   border: 1px solid
-    ${({ theme, hideInput }) => (hideInput ? " transparent" : theme.bg2)};
-  background-color: ${({ theme }) => theme.bg1};
+    ${({ theme, hideInput }) => (hideInput ? " transparent" : theme.bg7)};
+  background-color: ${({ theme }) => theme.bg7};
   width: ${({ hideInput }) => (hideInput ? "100%" : "initial")};
   :focus,
   :hover {
     border: 1px solid
-      ${({ theme, hideInput }) => (hideInput ? " transparent" : theme.bg3)};
+      ${({ theme, hideInput }) => (hideInput ? " transparent" : theme.purple)};
   }
 `;
 
@@ -464,7 +464,7 @@ export default function OrderCard({ order }: { order: Order }) {
         <OrderRow style={{ height: "20px" }}>
           <RowBetween>
             <Text fontWeight={400} fontSize={12} color={theme.text1}>
-              Current price:
+              Current Price:
             </Text>
             {trade ? (
               <TradePrice
@@ -485,7 +485,7 @@ export default function OrderCard({ order }: { order: Order }) {
             <OrderRow style={{ height: "20px" }}>
               <RowBetween>
                 <Text fontWeight={400} fontSize={12} color={theme.text1}>
-                  Execution price:
+                  Execution Price:
                 </Text>
                 {executionPrice ? (
                   isTransactionCostDependentChainBool ? (

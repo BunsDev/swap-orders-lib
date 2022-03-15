@@ -199,7 +199,7 @@ export const DisclaimerText = () => (
     <AutoColumn gap={"8px"}>
       <>
         <TYPE.main fontSize={14} fontWeight={500}>
-          Real Execution Price: Varies (with Gas)
+          Real Execution Price: Gas-Variable
         </TYPE.main>
       </>
       <>

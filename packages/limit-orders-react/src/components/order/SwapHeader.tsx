@@ -47,7 +47,7 @@ const StyledNavLink = styled.div<{ active: boolean }>`
     border-radius: 12px;
     font-weight: 600;
     color: ${theme.text1};
-    background-color: ${theme.bg2};
+    background-color: ${theme.purple};
   `}
 
   :hover,
