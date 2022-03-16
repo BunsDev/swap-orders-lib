@@ -20,7 +20,7 @@ import {
 } from "./tokens";
 import { BSC_BASES, WBNB_BSC } from "./tokens.bsc";
 import { AVAX_BASES, WAVAX_AVAX } from "./tokens.avax";
-import { SOUL_FANTOM, WETH_FANTOM, WFTM_FANTOM } from "./tokens.fantom";
+import { SOUL_FANTOM, WFTM_FANTOM } from "./tokens.fantom";
 import { WETH_MATIC } from "./tokens.matic";
 
 type ChainTokenList = {
@@ -58,7 +58,7 @@ const WETH_ONLY: ChainTokenList = {
   [5]: [WETH9[5]],
   [42]: [WETH9[42]],
   [56]: [WBNB_BSC],
-  [250]: [WETH_FANTOM],
+  [250]: [WFTM_FANTOM],
   [137]: [WETH_MATIC],
   [43114]: [WAVAX_AVAX],
 };

@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
+import React, { useCallback, useState, Fragment, useEffect } from "react";
 import {
   Currency,
   CurrencyAmount,
@@ -9,7 +10,6 @@ import { Trade } from "@uniswap/v2-sdk";
 import { AdvancedSwapDetails } from "../order/AdvancedSwapDetails";
 import UnsupportedCurrencyFooter from "../order/UnsupportedCurrencyFooter";
 import { MouseoverTooltip, MouseoverTooltipContent } from "../Tooltip";
-import React, { useCallback, useState, Fragment, useEffect } from "react";
 import {
   ArrowDown,
   Info,
@@ -58,7 +58,8 @@ import {
 import Loader from "../Loader";
 import CurrencyLogo from "../CurrencyLogo";
 import { NATIVE } from "../../constants/addresses";
-import { useDispatch } from "react-redux";
+import { SOUL_FANTOM } from "../../constants/tokens.fantom";
+// import { useDispatch } from "react-redux";
 
 const StyledInfo = styled(Info)`
   opacity: 0.4;
@@ -390,7 +391,7 @@ export default function GelatoLimitOrder({
                 onMax={handleMaxInput}
                 fiatValue={fiatValueInput ?? undefined}
                 onCurrencySelect={handleInputSelect}
-                otherCurrency={currencies.output}
+                otherCurrency={currencies.output || SOUL_FANTOM}
                 showCommonBases={showCommonBases}
                 id="limit-order-currency-input"
               />
@@ -536,7 +537,7 @@ export default function GelatoLimitOrder({
                           <CheckCircle size="20" color={theme.green1} />
                         ) : (
                           <MouseoverTooltip
-                            text={`You must give the Gelato Limit Orders smart contracts
+                            text={`You must give the Limit Orders smart contracts
                                 permission to use your 
                                 ${currencies.input?.symbol}. You only have to do
                                 this once per token.`}

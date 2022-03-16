@@ -1,16 +1,16 @@
+import React, { Dispatch, useState, SetStateAction, useEffect } from "react";
 import { Currency, TradeType } from "@uniswap/sdk-core";
 import { Trade } from "@uniswap/v2-sdk";
-import React, { Dispatch, useState, SetStateAction, useEffect } from "react";
 import { ArrowDown, AlertTriangle } from "react-feather";
 import { Text } from "rebass";
 import styled from "styled-components";
-import { useUSDCValue } from "../../hooks/useUSDCPrice";
+// import { useUSDCValue } from "../../hooks/useUSDCPrice";
 import { TYPE } from "../../theme";
 import { ButtonPrimary } from "../Button";
-import { isAddress, shortenAddress } from "../../utils";
-import { computeFiatValuePriceImpact } from "../../utils/computeFiatValuePriceImpact";
+// import { isAddress, shortenAddress } from "../../utils";
+// import { computeFiatValuePriceImpact } from "../../utils/computeFiatValuePriceImpact";
 import { AutoColumn } from "../Column";
-import { FiatValue } from "../CurrencyInputPanel/FiatValue";
+// import { FiatValue } from "../CurrencyInputPanel/FiatValue";
 import CurrencyLogo from "../CurrencyLogo";
 import { RowBetween, RowFixed } from "../Row";
 import {
@@ -49,7 +49,7 @@ export const ArrowWrapper = styled.div`
 
 export default function SwapModalHeader({
   trade,
-  recipient,
+  // recipient,
   showAcceptChanges,
   onAcceptChanges,
   onDisclaimerChange,
@@ -73,8 +73,8 @@ export default function SwapModalHeader({
   const inputAmount = parsedAmounts.input;
   const outputAmount = parsedAmounts.output;
 
-  const fiatValueInput = useUSDCValue(inputAmount);
-  const fiatValueOutput = useUSDCValue(outputAmount);
+  // const fiatValueInput = useUSDCValue(inputAmount);
+  // const fiatValueOutput = useUSDCValue(outputAmount);
 
   useEffect(() => {
     onDisclaimerChange(disclaimer);

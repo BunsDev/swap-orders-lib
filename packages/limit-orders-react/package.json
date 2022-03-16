@@ -1,6 +1,6 @@
 {
   "name": "soulswap-limit-orders-react",
-  "version": "3.6.0",
+  "version": "3.7.0",
   "description": "React Library for creating limit orders via SoulSwap",
   "keywords": [
     "ethereum",
