@@ -5,7 +5,7 @@ import { TYPE } from "../../theme";
 import { darken } from "polished";
 
 const StyledSwapHeader = styled.div`
-  padding: 1rem 1.25rem 0.5rem 1.25rem;
+  padding: 0rem 0.25rem 0rem 0.5rem;
   width: 100%;
   color: ${({ theme }) => theme.text2};
 `;
@@ -13,7 +13,6 @@ const StyledSwapHeader = styled.div`
 const HeaderTitles = styled(Row)`
   justify-self: flex-end;
   background-color: ${({ theme }) => theme.bg0};
-
   border-radius: 16px;
   display: grid;
   grid-auto-flow: column;
@@ -30,8 +29,8 @@ const StyledOrdersHeaderTabs = styled.div`
 
 const StyledNavLink = styled.div<{ active: boolean }>`
   ${({ theme }) => theme.flexRowNoWrap}
-  align-items: right;
-  border-radius: 3rem;
+  align-items: center;
+  border-radius: 1rem;
   outline: none;
   cursor: pointer;
   text-decoration: none;
@@ -39,12 +38,12 @@ const StyledNavLink = styled.div<{ active: boolean }>`
   font-size: 1rem;
   width: fit-content;
   font-weight: 500;
-  padding: 8px 12px;
+  padding: 2px 12px;
 
   ${({ active, theme }) =>
     active &&
     `    
-    border-radius: 12px;
+    border-radius: 120px;
     font-weight: 600;
     color: ${theme.text1};
     background-color: ${theme.purple};
