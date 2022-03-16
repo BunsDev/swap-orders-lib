@@ -6,10 +6,7 @@ import gmulticall from "./gmulticall/reducer";
 import gtransactions from "./gtransactions/reducer";
 import { configureStore } from "@reduxjs/toolkit";
 
-export const GELATO_PERSISTED_KEYS: string[] = [
-  "gtransactions",
-  "guser",
-];
+export const GELATO_PERSISTED_KEYS: string[] = ["gtransactions", "guser"];
 
 export const gelatoReducers = {
   gapplication,
