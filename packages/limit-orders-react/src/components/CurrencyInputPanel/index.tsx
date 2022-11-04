@@ -23,14 +23,14 @@ import { AutoColumn } from "../Column";
 import { FiatValue } from "./FiatValue";
 import { formatTokenAmount } from "../../utils/formatTokenAmount";
 import { MouseoverTooltip } from "../Tooltip";
-import HoverInlineText from "../HoverInlineText";
+// import HoverInlineText from "../HoverInlineText";
 import DropDown from "../../assets/images/dropdown.svg";
 import { isTransactionCostDependentChain } from "soulswap-limit-orders-lib/dist/utils";
 import { Pair } from "../../entities/pair";
-import TradePrice from "../order/TradePrice";
+// import TradePrice from "../order/TradePrice";
 import { RatePercentage } from "./RatePercentage";
 import { Rate } from "../../state/gorder/actions";
-import Loader from "../Loader";
+// import Loader from "../Loader";
 
 const InputPanel = styled.div<{ hideInput?: boolean }>`
   ${({ theme }) => theme.flexColumnNoWrap}

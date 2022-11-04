@@ -1,4 +1,4 @@
-import React, { Dispatch, useState, SetStateAction, useEffect } from "react";
+import React, { Dispatch, useState, SetStateAction } from "react"; // useEffect
 import { Currency, TradeType } from "@uniswap/sdk-core";
 import { Trade } from "@uniswap/v2-sdk";
 import { ArrowDown, AlertTriangle } from "react-feather";
@@ -24,7 +24,7 @@ import { DarkGreyCard } from "../Card";
 import TradePrice from "../order/TradePrice";
 import useTheme from "../../hooks/useTheme";
 import { useGelatoLimitOrders } from "../../hooks/gelato";
-import Toggle from "react-styled-toggle";
+// import Toggle from "react-styled-toggle";
 
 export const AnimatedCard = styled(LightCard)<{ expand: boolean }>`
   padding: 0.75rem;
@@ -52,19 +52,19 @@ export default function SwapModalHeader({
   // recipient,
   showAcceptChanges,
   onAcceptChanges,
-  onDisclaimerChange,
-}: {
+}: // onDisclaimerChange,
+{
   trade?: Trade<Currency, Currency, TradeType>;
   recipient: string | null;
   showAcceptChanges: boolean;
   onAcceptChanges: () => void;
-  onDisclaimerChange: Dispatch<SetStateAction<boolean>>;
+  // onDisclaimerChange: Dispatch<SetStateAction<boolean>>;
 }) {
   const theme = useTheme();
 
   const [showInverted, setShowInverted] = useState<boolean>(false);
   // const [showDisclaimer, setShowDisclaimer] = useState<boolean>(true);
-  const [disclaimer, setDisclaimer] = useState<boolean>(false);
+  // const [disclaimer, setDisclaimer] = useState<boolean>(false);
 
   const {
     derivedOrderInfo: { price, parsedAmounts },
@@ -76,9 +76,9 @@ export default function SwapModalHeader({
   // const fiatValueInput = useUSDCValue(inputAmount);
   // const fiatValueOutput = useUSDCValue(outputAmount);
 
-  useEffect(() => {
-    onDisclaimerChange(disclaimer);
-  }, [disclaimer, onDisclaimerChange]);
+  // useEffect(() => {
+  //   onDisclaimerChange(disclaimer);
+  // }, [disclaimer, onDisclaimerChange]);
 
   if (!inputAmount || !outputAmount) return null;
 

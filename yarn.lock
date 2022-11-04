@@ -8528,16 +8528,6 @@ sort-keys@^4.0.0:
   dependencies:
     is-plain-obj "^2.0.0"
 
-soulswap-limit-orders-lib@latest:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/soulswap-limit-orders-lib/-/soulswap-limit-orders-lib-1.1.0.tgz#7cf6506b056ada1d259adcaf85bb5aaba6e22cb7"
-  integrity sha512-79QO9EjVpueqS44sqa24r40Frc+0JEVL0Fdnunzm5LDbp52pMEhsDEz56QhPpg3/lT+2TT9Y3AVc4Fegs5oy/A==
-  dependencies:
-    ethers "^5.4.6"
-    graphql "^15.5.3"
-    graphql-request "^3.5.0"
-    tslib "^2.3.1"
-
 source-map-support@^0.5.17, source-map-support@~0.5.20:
   version "0.5.21"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.21.tgz#04fe7c7f9e1ed2d662233c28cb2b35b9f63f6e4f"

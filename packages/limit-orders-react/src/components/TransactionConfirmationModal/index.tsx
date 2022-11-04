@@ -151,7 +151,7 @@ export function ConfirmationModalContent({
   bottomContent?: () => React.ReactNode | undefined;
 }) {
   return (
-    <Wrapper>
+    <Wrapper className="mb-6">
       <Section>
         <RowBetween>
           <Text fontWeight={500} fontSize={16}>

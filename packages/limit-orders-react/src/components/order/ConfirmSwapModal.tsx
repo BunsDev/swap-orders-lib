@@ -60,7 +60,7 @@ export default function ConfirmSwapModal({
         recipient={recipient}
         showAcceptChanges={false}
         onAcceptChanges={onAcceptChanges}
-        onDisclaimerChange={(value) => setDisclaimer(value)}
+        // onDisclaimerChange={(value) => setDisclaimer(value)}
       />
     );
   }, [onAcceptChanges, recipient, trade]);

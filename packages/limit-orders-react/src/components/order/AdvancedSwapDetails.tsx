@@ -2,7 +2,7 @@
 import { constants } from "soulswap-limit-orders-lib";
 import { isTransactionCostDependentChain } from "soulswap-limit-orders-lib/dist/utils";
 import { CurrencyAmount } from "@uniswap/sdk-core";
-import { formatUnits } from "@ethersproject/units";
+// import { formatUnits } from "@ethersproject/units";
 import React, { useMemo } from "react";
 import { useGelatoLimitOrders } from "../../hooks/gelato";
 import useGelatoLimitOrdersLib from "../../hooks/gelato/useGelatoLimitOrdersLib";
@@ -56,7 +56,7 @@ export function AdvancedSwapDetails() {
   const outputAmount = parsedAmounts.output;
 
   const rawOutputAmount = rawAmounts.output ?? "0";
-
+  // @ts-ignore
   const { minReturn, slippagePercentage, gelatoFeePercentage } = useMemo(() => {
     if (!outputAmount || !library || !chainId)
       return {
@@ -135,7 +135,7 @@ export function AdvancedSwapDetails() {
             </RowFixed>
             <TYPE.black textAlign="right" fontSize={12} color={theme.text1}>
               {gasPrice
-                ? `${parseFloat(formatUnits(gasPrice, "gwei")).toFixed(0)} GWEI`
+                // ? `${parseFloat(formatUnits(gasPrice, "gwei")).toFixed(0)} GWEI`
                 : "-"}
             </TYPE.black>
           </RowBetween> */}
