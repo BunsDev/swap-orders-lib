@@ -114,7 +114,7 @@ export function AdvancedSwapDetails() {
             </TYPE.black>
           </RowBetween>
 
-          <RowBetween>
+          {/* <RowBetween>
             <RowFixed>
               <TYPE.black fontSize={12} fontWeight={400} color={theme.text2}>
                 Slippage
@@ -123,7 +123,7 @@ export function AdvancedSwapDetails() {
             <TYPE.black textAlign="right" fontSize={12} color={theme.text1}>
               {slippagePercentage ? `${slippagePercentage}` : "-"}%
             </TYPE.black>
-          </RowBetween>
+          </RowBetween> */}
         </>
       ) : (
         <>
@@ -172,7 +172,7 @@ export function AdvancedSwapDetails() {
             </TYPE.black>
           </RowBetween>
 
-          <RowBetween>
+          {/* <RowBetween>
             <RowFixed>
               <TYPE.black fontSize={12} fontWeight={400} color={theme.text2}>
                 Slippage
@@ -181,11 +181,11 @@ export function AdvancedSwapDetails() {
             <TYPE.black textAlign="right" fontSize={12} color={theme.text1}>
               {slippagePercentage ? `${slippagePercentage}` : "-"}%
             </TYPE.black>
-          </RowBetween>
+          </RowBetween> */}
         </>
       )}
 
-      <RowBetween>
+      {/* <RowBetween>
         <RowFixed>
           <MouseoverTooltip
             text={`The minimum amount you can receive. It includes all fees and maximum slippage tolerance.`}
@@ -202,7 +202,7 @@ export function AdvancedSwapDetails() {
               }`
             : "-"}
         </TYPE.black>
-      </RowBetween>
+      </RowBetween> */}
       <RowBetween>
         <RowFixed>
           <MouseoverTooltip
