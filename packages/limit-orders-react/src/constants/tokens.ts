@@ -119,7 +119,6 @@ export const getBaseTokenLogoURLByTokenSymbol = (
 ): string | undefined => {
   switch (symbol) {
     case "USDC":
-    case "USDC.e":
       return "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png";
     case "FTM":
       return "https://raw.githubusercontent.com/SoulSwapFinance/icons/master/token/ftm.jpg";
@@ -127,18 +126,11 @@ export const getBaseTokenLogoURLByTokenSymbol = (
       return "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83/logo.png";
     case "SOUL":
       return "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07/logo.png";
-    case "SEANCE":
-      return "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0x124B06C5ce47De7A6e9EFDA71a946717130079E6/logo.png";
-    case "GRIM":
-      return "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0x0a77866C01429941BFC7854c0c0675dB1015218b/logo.png";
     case "LUX":
       return "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0x6671E20b83Ba463F270c8c75dAe57e3Cc246cB2b/logo.png";
     case "DAI":
       return "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png";
-    case "SPIRIT":
-      return "https://raw.githubusercontent.com/SoulSwapFinance/assets/master/blockchains/fantom/assets/0x5Cc61A78F164885776AA610fb0FE1257df78E59B/logo.png";
     case "USDT":
-    case "fUSDT":
     case "USDT.e":
       return "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png";
     case "ETH":

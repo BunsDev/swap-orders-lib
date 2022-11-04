@@ -14,13 +14,6 @@ export const DAI_FANTOM = new Token(
   "DAI",
   "Dai Stablecoin"
 );
-export const fUSDT_FANTOM = new Token(
-  250,
-  "0x049d68029688eabf473097a2fc38ef61633a3c7a",
-  6,
-  "USDT",
-  "Frapped USDT"
-);
 export const WETH_FANTOM = new Token(
   250,
   "0x74b23882a30290451A17c44f4F05243b6b58C76d",
@@ -63,32 +56,14 @@ export const LUX_FANTOM = new Token(
   "LUX",
   "Luxor Money"
 );
-export const SEANCE_FANTOM = new Token(
-  250,
-  "0x124B06C5ce47De7A6e9EFDA71a946717130079E6",
-  18,
-  "SEANCE",
-  "Seance Circle"
-);
-export const EVO_FANTOM = new Token(
-  250,
-  "0x0a77866C01429941BFC7854c0c0675dB1015218b",
-  18,
-  "GRIM",
-  "Grim EVO"
-);
 
 export const FANTOM_BASES = [
   USDC_FANTOM,
   DAI_FANTOM,
-  fUSDT_FANTOM,
   WETH_FANTOM,
   SOUL_FANTOM,
   LUX_FANTOM,
-  SEANCE_FANTOM,
   WBNB_FANTOM,
-  EVO_FANTOM,
-  // SPIRIT_FANTOM,
   WBTC_FANTOM,
   WFTM_FANTOM,
 ];

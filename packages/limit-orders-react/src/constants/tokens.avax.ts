@@ -10,9 +10,9 @@ export const WAVAX_AVAX = new Token(
 
 export const USDC_AVAX = new Token(
   43114,
-  "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
+  "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
   6,
-  "USDC.e",
+  "USDC",
   "USD Coin"
 );
 
@@ -24,4 +24,12 @@ export const USDT_AVAX = new Token(
   "Tether USD"
 );
 
-export const AVAX_BASES = [WAVAX_AVAX, USDC_AVAX, USDT_AVAX];
+export const SOUL_AVAX = new Token(
+  43114,
+  "0x11d6DD25c1695764e64F439E32cc7746f3945543",
+  18,
+  "SOUL",
+  "Soul Power"
+);
+
+export const AVAX_BASES = [WAVAX_AVAX, USDC_AVAX, USDT_AVAX, SOUL_AVAX];
