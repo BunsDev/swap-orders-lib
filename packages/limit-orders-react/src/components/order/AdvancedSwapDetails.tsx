@@ -127,7 +127,7 @@ export function AdvancedSwapDetails() {
         </>
       ) : (
         <>
-          <RowBetween>
+          {/* <RowBetween>
             <RowFixed>
               <TYPE.black fontSize={12} fontWeight={400} color={theme.text2}>
                 Gas Price
@@ -138,7 +138,7 @@ export function AdvancedSwapDetails() {
                 ? `${parseFloat(formatUnits(gasPrice, "gwei")).toFixed(0)} GWEI`
                 : "-"}
             </TYPE.black>
-          </RowBetween>
+          </RowBetween> */}
           <RowBetween>
             <RowFixed>
               <MouseoverTooltip

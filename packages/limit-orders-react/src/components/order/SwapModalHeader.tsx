@@ -16,7 +16,7 @@ import { RowBetween, RowFixed } from "../Row";
 import {
   TruncatedText,
   SwapShowAcceptChanges,
-  DisclaimerText,
+  // DisclaimerText,
 } from "./styleds";
 import { AdvancedSwapDetails } from "./AdvancedSwapDetails";
 import { LightCard } from "../Card";
@@ -63,7 +63,7 @@ export default function SwapModalHeader({
   const theme = useTheme();
 
   const [showInverted, setShowInverted] = useState<boolean>(false);
-  const [showDisclaimer, setShowDisclaimer] = useState<boolean>(true);
+  // const [showDisclaimer, setShowDisclaimer] = useState<boolean>(true);
   const [disclaimer, setDisclaimer] = useState<boolean>(false);
 
   const {
@@ -82,10 +82,10 @@ export default function SwapModalHeader({
 
   if (!inputAmount || !outputAmount) return null;
 
-  const handleDisclaimer = (value: boolean) => {
-    onDisclaimerChange(value);
-    setDisclaimer(value);
-  };
+  // const handleDisclaimer = (value: boolean) => {
+  //   onDisclaimerChange(value);
+  //   setDisclaimer(value);
+  // };
 
   return (
     <AutoColumn gap={"4px"} style={{ marginTop: "1rem" }}>
@@ -159,16 +159,16 @@ export default function SwapModalHeader({
         <AdvancedSwapDetails />
       </LightCard>
 
-      {showDisclaimer && (
+      {/* {showDisclaimer && (
         <AnimatedCard
           style={{ padding: ".75rem", marginTop: "0.5rem" }}
           expand={showDisclaimer}
         >
           <DisclaimerText />
         </AnimatedCard>
-      )}
+      )} */}
 
-      <RowBetween style={{ marginTop: "0.25rem", padding: "0 1rem" }}>
+      {/* <RowBetween style={{ marginTop: "0.25rem", padding: "0 1rem" }}>
         <TYPE.link
           color={theme.purple}
           fontWeight={500}
@@ -192,7 +192,7 @@ export default function SwapModalHeader({
           sliderWidth={16}
           translate={22}
         />
-      </RowBetween>
+      </RowBetween> */}
 
       {showAcceptChanges ? (
         <SwapShowAcceptChanges justify="flex-start" gap={"0px"}>

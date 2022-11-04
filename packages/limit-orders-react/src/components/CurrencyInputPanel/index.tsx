@@ -403,7 +403,7 @@ export default function CurrencyInputPanel({
           </FiatRow>
         )}
 
-        {showRate &&
+        {/* {showRate &&
           value &&
           currency &&
           otherCurrency &&
@@ -447,7 +447,7 @@ export default function CurrencyInputPanel({
                         realExecutionRateExplainer ? theme.text2 : theme.text4
                       }
                     >
-                      {/* {realExecutionRateExplainer ? "~" : ""} */}
+                      {realExecutionRateExplainer ? "~" : ""}
                       {realExecutionRateExplainer ? (
                         <HoverInlineText text={realExecutionRateExplainer} />
                       ) : (
@@ -458,7 +458,7 @@ export default function CurrencyInputPanel({
                 </RowBetween>
               </FiatRow>
             </Fragment>
-          )}
+          )} */}
       </Container>
       {onCurrencySelect && (
         <CurrencySearchModal

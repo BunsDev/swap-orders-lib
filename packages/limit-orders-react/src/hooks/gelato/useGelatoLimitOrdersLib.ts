@@ -5,7 +5,7 @@ import { useWeb3 } from "../../web3";
 export default function useGelatoLimitOrdersLib():
   | GelatoLimitOrders
   | undefined {
-  const { chainId, library, handler } = useWeb3();
+  const { chainId, library } = useWeb3();
 
   return useMemo(() => {
     try {
@@ -16,5 +16,5 @@ export default function useGelatoLimitOrdersLib():
       console.error(`Could not instantiate LimitOrders: ${error.message}`);
       return undefined;
     }
-  }, [chainId, library, handler]);
+  }, [chainId, library]);
 }

@@ -1,5 +1,3 @@
-// import DEFAULT_TOKEN_LIST from '@uniswap/default-token-list'
-// import DEFAULT_TOKEN_LIST from '@soulswap/default-token-list'
 import DEFAULT_TOKEN_LIST from 'constants/tokenLists/soulswap.tokenlist.json'
 import { TokenList } from '@uniswap/token-lists'
 import { useMemo } from 'react'
