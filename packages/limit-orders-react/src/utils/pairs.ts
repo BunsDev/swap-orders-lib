@@ -8,8 +8,12 @@ const QUICK_SWAP_INIT_CODE_HASH =
   "0x96e8ac4277198ff8b6f785478aa9a39f403cb768dd02cbee326c3e7da348845f";
 
 const SOUL_SWAP_FACTORY_ADDRESS = "0x1120e150dA9def6Fe930f4fEDeD18ef57c0CA7eF";
+const SOUL_SWAP_FACTORY_ADDRESS_AVAX =
+  "0x5BB2a9984de4a69c05c996F7EF09597Ac8c9D63a";
 const SOUL_SWAP_INIT_CODE_HASH =
   "0xf3dcc3c6c6e34d3981dd429ac942301b9ebdd05de1be17f646b55476c44dc951";
+const SOUL_SWAP_INIT_CODE_HASH_AVAX =
+  "0xab9f67104ee4239d49c6b434dc5d6d76f43412862be0f00a0607199ad505abc6";
 
 const SPIRIT_SWAP_FACTORY_ADDRESS =
   "0xEF45d134b73241eDa7703fa787148D9C9F4950b0";
@@ -62,6 +66,21 @@ const getSoulSwapPairAddress = (tokenA: Token, tokenB: Token): string => {
       [pack(["address", "address"], [tokens[0].address, tokens[1].address])]
     ),
     SOUL_SWAP_INIT_CODE_HASH
+  );
+};
+
+const getSoulSwapAvaxPairAddress = (tokenA: Token, tokenB: Token): string => {
+  const tokens = tokenA.sortsBefore(tokenB)
+    ? [tokenA, tokenB]
+    : [tokenB, tokenA]; // does safety checks
+
+  return getCreate2Address(
+    SOUL_SWAP_FACTORY_ADDRESS_AVAX,
+    keccak256(
+      ["bytes"],
+      [pack(["address", "address"], [tokens[0].address, tokens[1].address])]
+    ),
+    SOUL_SWAP_INIT_CODE_HASH_AVAX
   );
 };
 
@@ -253,6 +272,8 @@ export const calculatePairAddressByHandler = (
     }
   } else if (tokenA.chainId === 43114 && tokenB.chainId === 43114) {
     switch (handler) {
+      case "soulswap":
+        return getSoulSwapAvaxPairAddress(tokenA, tokenB);
       case "traderjoe":
         return getTraderJoePairAddress(tokenA, tokenB);
       case "pangolin":

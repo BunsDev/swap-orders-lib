@@ -25,7 +25,8 @@ export function AdvancedSwapDetails() {
 
   const library = useGelatoLimitOrdersLib();
 
-  const { gasPrice, realExecutionPriceAsString } = useGasOverhead(
+  const { realExecutionPriceAsString } = useGasOverhead(
+    // gasPrice,
     parsedAmounts.input,
     parsedAmounts.output,
     rateType
@@ -56,8 +57,8 @@ export function AdvancedSwapDetails() {
   const outputAmount = parsedAmounts.output;
 
   const rawOutputAmount = rawAmounts.output ?? "0";
-  // @ts-ignore
-  const { minReturn, slippagePercentage, gelatoFeePercentage } = useMemo(() => {
+  const { gelatoFeePercentage } = useMemo(() => {
+    // minReturn, slippagePercentage,
     if (!outputAmount || !library || !chainId)
       return {
         minReturn: undefined,

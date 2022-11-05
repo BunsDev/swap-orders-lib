@@ -27,8 +27,8 @@ const SOULSWAP_LIST =
 const PANCAKESWAP_LIST =
   "https://tokens.pancakeswap.finance/pancakeswap-extended.json";
 
-const TRADERJOE_LIST =
-  "https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/joe.tokenlist.json";
+// const TRADERJOE_LIST =
+//   "https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/joe.tokenlist.json";
 
 export const UNSUPPORTED_LIST_URLS: string[] = [BA_LIST];
 
@@ -44,8 +44,8 @@ export const DEFAULT_LIST_OF_LISTS_MAINNET: string[] = [
 export const DEFAULT_LIST_OF_LISTS_MATIC: string[] = [QUICKSWAP_LIST];
 export const DEFAULT_LIST_OF_LISTS_BSC: string[] = [PANCAKESWAP_LIST];
 export const DEFAULT_LIST_OF_LISTS_FANTOM: string[] = [SOULSWAP_LIST];
-export const DEFAULT_LIST_OF_LISTS_AVALANCHE: string[] = [TRADERJOE_LIST];
-// export const DEFAULT_LIST_OF_LISTS_AVALANCHE: string[] = [SOULSWAP_LIST];
+// export const DEFAULT_LIST_OF_LISTS_AVALANCHE: string[] = [TRADERJOE_LIST];
+export const DEFAULT_LIST_OF_LISTS_AVALANCHE: string[] = [SOULSWAP_LIST];
 
 // default lists to be 'active' aka searched across
 export const DEFAULT_ACTIVE_LIST_URLS: string[] = [
@@ -63,5 +63,5 @@ export const DEFAULT_ACTIVE_LIST_URLS_BY_CHAIN_ID: {
   [56]: [PANCAKESWAP_LIST],
   [137]: [QUICKSWAP_LIST],
   [250]: [SOULSWAP_LIST],
-  [43114]: [TRADERJOE_LIST],
+  [43114]: [SOULSWAP_LIST],
 };

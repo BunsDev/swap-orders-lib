@@ -5,7 +5,7 @@ import {
   Price,
   Token,
 } from "@uniswap/sdk-core";
-import React, { useState, useCallback, Fragment, useMemo } from "react";
+import React, { useState, useCallback, useMemo } from "react"; // Fragment
 import styled from "styled-components/macro";
 import { darken } from "polished";
 import { useCurrencyBalance } from "../../hooks/Balances";
@@ -216,13 +216,13 @@ export default function CurrencyInputPanel({
   showCurrencySelector = true,
   showRate = false,
   isInvertedRate = false,
-  realExecutionPrice,
-  realExecutionPriceAsString,
+  // realExecutionPrice,
+  // realExecutionPriceAsString,
   rateType,
   ...rest
 }: CurrencyInputPanelProps) {
   const [modalOpen, setModalOpen] = useState(false);
-  const [showInverted, setShowInverted] = useState<boolean>(true);
+  // const [showInverted, setShowInverted] = useState<boolean>(true);
 
   const { account, chainId } = useWeb3();
   const selectedCurrencyBalance = useCurrencyBalance(
@@ -250,19 +250,19 @@ export default function CurrencyInputPanel({
     [currency, isInvertedRate, otherCurrency, value]
   );
 
-  const realExecutionRateExplainer = useMemo(
-    () =>
-      currency && otherCurrency && realExecutionPriceAsString
-        ? realExecutionPriceAsString === "never executes"
-          ? realExecutionPriceAsString
-          : `1 ${
-              isInvertedRate ? otherCurrency?.symbol : currency?.symbol
-            } = ${realExecutionPriceAsString} ${
-              isInvertedRate ? currency?.symbol : otherCurrency?.symbol
-            }`
-        : undefined,
-    [currency, isInvertedRate, otherCurrency, realExecutionPriceAsString]
-  );
+  // const realExecutionRateExplainer = useMemo(
+  //   () =>
+  //     currency && otherCurrency && realExecutionPriceAsString
+  //       ? realExecutionPriceAsString === "never executes"
+  //         ? realExecutionPriceAsString
+  //         : `1 ${
+  //             isInvertedRate ? otherCurrency?.symbol : currency?.symbol
+  //           } = ${realExecutionPriceAsString} ${
+  //             isInvertedRate ? currency?.symbol : otherCurrency?.symbol
+  //           }`
+  //       : undefined,
+  //   [currency, isInvertedRate, otherCurrency, realExecutionPriceAsString]
+  // );
 
   return (
     <InputPanel id={id} hideInput={hideInput} {...rest}>

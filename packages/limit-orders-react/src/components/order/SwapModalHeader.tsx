@@ -1,4 +1,5 @@
-import React, { Dispatch, useState, SetStateAction } from "react"; // useEffect
+import React, { Dispatch, useState, useEffect } from "react";
+import { SetStateAction } from "react";
 import { Currency, TradeType } from "@uniswap/sdk-core";
 import { Trade } from "@uniswap/v2-sdk";
 import { ArrowDown, AlertTriangle } from "react-feather";
@@ -16,7 +17,7 @@ import { RowBetween, RowFixed } from "../Row";
 import {
   TruncatedText,
   SwapShowAcceptChanges,
-  // DisclaimerText,
+  DisclaimerText,
 } from "./styleds";
 import { AdvancedSwapDetails } from "./AdvancedSwapDetails";
 import { LightCard } from "../Card";
@@ -24,7 +25,7 @@ import { DarkGreyCard } from "../Card";
 import TradePrice from "../order/TradePrice";
 import useTheme from "../../hooks/useTheme";
 import { useGelatoLimitOrders } from "../../hooks/gelato";
-// import Toggle from "react-styled-toggle";
+import Toggle from "react-styled-toggle";
 
 export const AnimatedCard = styled(LightCard)<{ expand: boolean }>`
   padding: 0.75rem;
@@ -52,19 +53,19 @@ export default function SwapModalHeader({
   // recipient,
   showAcceptChanges,
   onAcceptChanges,
-}: // onDisclaimerChange,
-{
+  onDisclaimerChange,
+}: {
   trade?: Trade<Currency, Currency, TradeType>;
   recipient: string | null;
   showAcceptChanges: boolean;
   onAcceptChanges: () => void;
-  // onDisclaimerChange: Dispatch<SetStateAction<boolean>>;
+  onDisclaimerChange: Dispatch<SetStateAction<boolean>>;
 }) {
   const theme = useTheme();
 
   const [showInverted, setShowInverted] = useState<boolean>(false);
-  // const [showDisclaimer, setShowDisclaimer] = useState<boolean>(true);
-  // const [disclaimer, setDisclaimer] = useState<boolean>(false);
+  const [showDisclaimer, setShowDisclaimer] = useState<boolean>(true);
+  const [disclaimer, setDisclaimer] = useState<boolean>(false);
 
   const {
     derivedOrderInfo: { price, parsedAmounts },
@@ -76,16 +77,16 @@ export default function SwapModalHeader({
   // const fiatValueInput = useUSDCValue(inputAmount);
   // const fiatValueOutput = useUSDCValue(outputAmount);
 
-  // useEffect(() => {
-  //   onDisclaimerChange(disclaimer);
-  // }, [disclaimer, onDisclaimerChange]);
+  useEffect(() => {
+    onDisclaimerChange(disclaimer);
+  }, [disclaimer, onDisclaimerChange]);
 
   if (!inputAmount || !outputAmount) return null;
 
-  // const handleDisclaimer = (value: boolean) => {
-  //   onDisclaimerChange(value);
-  //   setDisclaimer(value);
-  // };
+  const handleDisclaimer = (value: boolean) => {
+    onDisclaimerChange(value);
+    setDisclaimer(value);
+  };
 
   return (
     <AutoColumn gap={"4px"} style={{ marginTop: "1rem" }}>
@@ -159,16 +160,16 @@ export default function SwapModalHeader({
         <AdvancedSwapDetails />
       </LightCard>
 
-      {/* {showDisclaimer && (
+      {showDisclaimer && (
         <AnimatedCard
           style={{ padding: ".75rem", marginTop: "0.5rem" }}
           expand={showDisclaimer}
         >
           <DisclaimerText />
         </AnimatedCard>
-      )} */}
+      )}
 
-      {/* <RowBetween style={{ marginTop: "0.25rem", padding: "0 1rem" }}>
+      <RowBetween style={{ marginTop: "0.25rem", padding: "0 1rem" }}>
         <TYPE.link
           color={theme.purple}
           fontWeight={500}
@@ -192,7 +193,7 @@ export default function SwapModalHeader({
           sliderWidth={16}
           translate={22}
         />
-      </RowBetween> */}
+      </RowBetween>
 
       {showAcceptChanges ? (
         <SwapShowAcceptChanges justify="flex-start" gap={"0px"}>

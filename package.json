@@ -22,5 +22,6 @@
     "lint": "lerna run lint --parallel",
     "test": "lerna run test --parallel",
     "prepare": "husky install"
-  }
+  },
+  "dependencies": {}
 }
